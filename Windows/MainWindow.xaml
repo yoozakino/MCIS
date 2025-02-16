@@ -1,4 +1,4 @@
-﻿<Window x:Class="Информационная_система_медицинской_клиники.MainWindow"
+﻿<Window x:Class="Информационная_система_медицинской_клиники.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
         mc:Ignorable="d"
         Title="ИСМК" Height="600" Width="800" ResizeMode="NoResize" 
-        KeyDown="Window_KeyDown">
+        KeyDown="Window_KeyDown"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <LinearGradientBrush x:Key="HoverGradientBrush" StartPoint="0,0" EndPoint="1,0">
             <GradientStop Color="#FFA500" Offset="0"/>
@@ -48,7 +49,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1.7" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -57,11 +58,13 @@
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
@@ -103,7 +106,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1.7" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -112,11 +115,13 @@
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
@@ -130,7 +135,7 @@
         </Style>
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="/Images/sign_up_background.jpg" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="/Images/start_background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
 

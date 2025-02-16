@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Информационная_система_медицинской_клиники
+namespace Информационная_система_медицинской_клиники.Windows
 {
     /// <summary>
     /// Логика взаимодействия для SignUpWindow.xaml
@@ -26,8 +27,9 @@ namespace Информационная_система_медицинской_к�
         }
 
         private string AdminLogin = "ADMIN";
-        private string AdminPassword = "admin";
+        private readonly string AdminPasswordHash = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 
+        
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -40,18 +42,37 @@ namespace Информационная_система_медицинской_к�
                 this.Close();
             }
         }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Преобразуем пароль в массив байт и вычисляем хэш
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Преобразуем массив байт в строку
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (login.Text == "" && password.Text == "")
+            string hashedEnteredPassword = HashPassword(password.Password);
+
+            if (login.Text == "" && password.Password == "")
             {
                 MessageBox.Show("Значения полей пустые");
             }
 
 
-            else if (login.Text == AdminLogin && password.Text == AdminPassword)
+            else if (login.Text == AdminLogin && hashedEnteredPassword == AdminPasswordHash)
             {
-                //MessageBox.Show("Ну наконец-то, тупорылая обезьяна");
-                Program program = new Program();
+                Program program = new Windows.Program();
 
                 program.Show();
 

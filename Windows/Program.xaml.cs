@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
-namespace Информационная_система_медицинской_клиники
+namespace Информационная_система_медицинской_клиники.Windows
 {
     /// <summary>
     /// Логика взаимодействия для Program.xaml
@@ -30,6 +31,11 @@ namespace Информационная_система_медицинской_к�
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void Patients_btn_сlick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/Patients.xaml", UriKind.Relative));
         }
 
 

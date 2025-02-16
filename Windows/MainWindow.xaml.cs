@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Информационная_система_медицинской_клиники
+namespace Информационная_система_медицинской_клиники.Windows
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -43,7 +43,7 @@ namespace Информационная_система_медицинской_к�
             if (signUpWindow == null || !signUpWindow.IsLoaded)
             {
                 // Создаем новое окно, если оно еще не открыто
-                signUpWindow = new SignUpWindow();
+                signUpWindow = new Windows.SignUpWindow();
                 signUpWindow.Show();
             }
 
