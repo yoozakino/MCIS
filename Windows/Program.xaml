@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
         mc:Ignorable="d"
-        Title="ИСМК" Height="700" Width="800" ResizeMode="NoResize"
+        Title="ИСМК" WindowStyle="SingleBorderWindow" WindowState="Maximized" 
         KeyDown="Window_KeyDown"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        
-    <LinearGradientBrush x:Key="HoverGradientBrush" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#FFA500" Offset="0"/>
-        <GradientStop Color="#FFD700" Offset="1"/>
-    </LinearGradientBrush>
 
-    <LinearGradientBrush x:Key="ClickGradientBrush" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#FFA500" Offset="0"/>
-        <GradientStop Color="DeepSkyBlue" Offset="1"/>
-    </LinearGradientBrush>
+        <LinearGradientBrush x:Key="HoverGradientBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#FFA500" Offset="0"/>
+            <GradientStop Color="#FFD700" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ClickGradientBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#FFA500" Offset="0"/>
+            <GradientStop Color="DeepSkyBlue" Offset="1"/>
+        </LinearGradientBrush>
 
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -82,23 +82,23 @@
         <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
-        <StackPanel VerticalAlignment="Top" Height="50" Width="650" Margin="20">
+        <StackPanel VerticalAlignment="Top" Height="50" Width="1100" Margin="20">
             <Button x:Name="create_record" Width="200" Height="30" Content="Добавить запись" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
             <Button x:Name="delete_record" Width="200" Height="30" Content="Удалить запись" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Margin="0, -30" Background="Gold"/>
             <Button x:Name="Update_table" Width="200" Height="30" Content="Обновить данные" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Margin="0, -30" Background="Gold"/>
         </StackPanel>
 
-        <StackPanel Margin="10,75,600,7">
+        <StackPanel Margin="31,82,1663,0">
             <Button x:Name="Patients_btn" Content="Пациенты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Click="Patients_btn_сlick"/>
-            <Button x:Name="Doctors_btn" Content="Врачи" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20"/>
+            <Button x:Name="Doctors_btn" Content="Врачи" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 50"/>
             <Button x:Name="Appointments_btn" Content="Записи на прием" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
-            <Button x:Name="Medical_cards_btn" Content="Медицинские карты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20"/>
+            <Button x:Name="Medical_cards_btn" Content="Медицинские карты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 50"/>
             <Button x:Name="Services_btn" Content="Услуги" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
-            <Button x:Name="Schedules_btn" Content="Расписание врачей" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20"/>
+            <Button x:Name="Schedules_btn" Content="Расписание врачей" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 50"/>
             <Button x:Name="Rooms_btn" Content="Кабинеты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
-            <Button x:Name="Invoices_btn" Content="Выставленные счета" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20"/>
+            <Button x:Name="Invoices_btn" Content="Выставленные счета" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 50"/>
             <Button x:Name="Medications_btn" Content="Лекарства" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
-            <Button x:Name="Instructions_btn" Content="Назначения лекарств" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20"/>
+            <Button x:Name="Instructions_btn" Content="Назначения лекарств" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 50"/>
         </StackPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

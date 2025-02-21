@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Appointments.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctors.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoices.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalRecords.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medical_Clinic_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medical_Clinic_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medical_Clinic_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medical_Clinic_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Medications.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Appointments.xaml.cs">
       <DependentUpon>Appointments.xaml</DependentUpon>
     </Compile>
@@ -84,6 +123,21 @@
     </Compile>
     <Compile Include="Pages\Services.xaml.cs">
       <DependentUpon>Services.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Patients.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prescriptions.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schedules.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Servicess.cs">
+      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\Program.xaml.cs">
       <DependentUpon>Program.xaml</DependentUpon>
@@ -169,6 +223,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Medical_Clinic_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Medical_Clinic_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Medical_Clinic_Model.edmx.diagram">
+      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -186,6 +248,20 @@
   <ItemGroup>
     <Resource Include="Images\start_background.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Medical_Clinic_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Medical_Clinic_Model.Context.cs</LastGenOutput>
+      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Medical_Clinic_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+      <LastGenOutput>Medical_Clinic_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
