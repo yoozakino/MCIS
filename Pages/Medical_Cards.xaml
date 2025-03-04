@@ -12,15 +12,15 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="PatientsGrid" Margin="10">
+        <DataGrid x:Name="MedCardsGrid" Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="100" Binding="{Binding RecordID}"/>
-                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="ФИО врача" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding DoctorName}"/>
+                <DataGridTextColumn Header="Пациента" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding PatientName}"/>
+                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding DoctorName}"/>
                 <DataGridTextColumn Header="Дата посещения" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding VisitDate}"/>
                 <DataGridTextColumn Header="Диагноз" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Diagnosis}"/>
                 <DataGridTextColumn Header="Назначения" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Prescriptions}"/>
-                <DataGridTextColumn Header="Комментарии" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Comments}"/>
+                <DataGridTextColumn Header="Комментарии" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Comments}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

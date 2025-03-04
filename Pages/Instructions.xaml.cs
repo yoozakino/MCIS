@@ -25,6 +25,7 @@ namespace Информационная_система_медицинской_к�
             InitializeComponent();
         }
 
+        /*
         private void Patients_btn_сlick(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("Pages/Patients.xaml", UriKind.Relative));
@@ -69,5 +70,7 @@ namespace Информационная_система_медицинской_к�
         {
             MainFrame.Navigate(new Uri("Pages/Medications.xaml", UriKind.Relative));
         }
+
+        */
     }
 }

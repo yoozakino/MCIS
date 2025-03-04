@@ -12,13 +12,13 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="PatientsGrid" Margin="10">
+        <DataGrid x:Name="DoctorsGrid" Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО врача" FontFamily="PlumbBoldC" FontSize="15" Width="400" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Специализация" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Specialization}"/>
                 <DataGridTextColumn Header="Телефон" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Email" FontFamily="PlumbBoldC" FontSize="15" Width="400" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Дата приема на работу" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Дата приема на работу" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding HireDate}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

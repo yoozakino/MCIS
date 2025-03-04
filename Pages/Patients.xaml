@@ -20,7 +20,7 @@
                 <DataGridTextColumn Header="Адрес" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Addresss}"/>
                 <DataGridTextColumn Header="Телефон" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Электронная почта" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Страховой полис" FontFamily="PlumbBoldC" FontSize="15" Width="1000" Binding="{Binding InsuranceNumber}"/>
+                <DataGridTextColumn Header="Страховой полис" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding InsuranceNumber}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

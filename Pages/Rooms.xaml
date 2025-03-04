@@ -5,102 +5,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="ИСМК" Height="700" Width="800">
-
-    <Page.Resources>
-        <LinearGradientBrush x:Key="HoverGradientBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FFA500" Offset="0"/>
-            <GradientStop Color="#FFD700" Offset="1"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="ClickGradientBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FFA500" Offset="0"/>
-            <GradientStop Color="DeepSkyBlue" Offset="1"/>
-        </LinearGradientBrush>
-
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1.7" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Page.Resources>
+      Title="Patients" Height="1080" Width="1920">
 
     <Page.Background>
         <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
     </Page.Background>
 
     <Grid>
-        <StackPanel VerticalAlignment="Top" Height="50" Width="650" Margin="20">
-            <Button x:Name="create_record" Width="200" Height="30" Content="Добавить запись" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Background="Gold"/>
-            <Button x:Name="delete_record" Width="200" Height="30" Content="Удалить запись" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Margin="0, -30" Background="Gold"/>
-            <Button x:Name="Update_table" Width="200" Height="30" Content="Обновить данные" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="PlumbBoldC" FontSize="17" Margin="0, -30" Background="Gold"/>
-        </StackPanel>
-
-        <StackPanel Margin="10,75,600,7">
-            <Button x:Name="Patients_btn" Content="Пациенты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Click="Patients_btn_сlick"/>
-            <Button x:Name="Doctors_btn" Content="Врачи" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20" Click="Doctors_btn_сlick"/>
-            <Button x:Name="Appointments_btn" Content="Записи на прием" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Click="Appointments_btn_сlick"/>
-            <Button x:Name="Medical_cards_btn" Content="Медицинские карты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20" Click="Medical_cards_btn_сlick"/>
-            <Button x:Name="Services_btn" Content="Услуги" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Click="Services_btn_сlick"/>
-            <Button x:Name="Schedules_btn" Content="Расписание врачей" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20" Click="Schedules_btn_сlick"/>
-            <Button x:Name="Rooms_btn" Content="Кабинеты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" IsEnabled="False"/>
-            <Button x:Name="Invoices_btn" Content="Выставленные счета" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20" Click="Invoices_btn_сlick"/>
-            <Button x:Name="Medications_btn" Content="Лекарства" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Click="Medications_btn_сlick"/>
-            <Button x:Name="Instructions_btn" Content="Назначения лекарств" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0, 20" Click="Instructions_btn_сlick"/>
-        </StackPanel>
-
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <DataGrid x:Name="RoomsGrid" Margin="10,10,732,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер кабинета" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding RoomNumber}"/>
+                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Description}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

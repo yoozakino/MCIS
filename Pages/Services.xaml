@@ -1,4 +1,4 @@
-﻿<Page x:Class="Информационная_система_медицинской_клиники.Pages.Patients"
+﻿<Page x:Class="Информационная_система_медицинской_клиники.Pages.Services"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,11 +12,11 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="PatientsGrid" Margin="10">
+        <DataGrid x:Name="ServicesGrid" Margin="10,10,595,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование услуги" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding ServiceName}"/>
                 <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="600" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Стоимость" FontFamily="PlumbBoldC" FontSize="15" Width="1000" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Стоимость" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Price}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
