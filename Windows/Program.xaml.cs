@@ -35,9 +35,35 @@ namespace Информационная_система_медицинской_к�
 
         private void Patients_btn_сlick(object sender, RoutedEventArgs e)
         {
+            Patients_btn.IsEnabled = false;
+            Doctors_btn.IsEnabled = true;
+            Appointments_btn.IsEnabled = true;
+            Medical_cards_btn.IsEnabled = true;
+            Services_btn.IsEnabled = true;
+            Schedules_btn.IsEnabled = true;
+            Rooms_btn.IsEnabled = true;
+            Invoices_btn.IsEnabled = true;
+            Medications_btn.IsEnabled = true;
+            Instructions_btn.IsEnabled = true;
             MainFrame.Navigate(new Uri("Pages/Patients.xaml", UriKind.Relative));
         }
 
+        private void Doctors_btn_сlick(object sender, RoutedEventArgs e)
+        {
+            Patients_btn.IsEnabled = true;
+            Doctors_btn.IsEnabled = false;
+            Appointments_btn.IsEnabled = true;
+            Medical_cards_btn.IsEnabled = true;
+            Services_btn.IsEnabled = true;
+            Schedules_btn.IsEnabled = true;
+            Rooms_btn.IsEnabled = true;
+            Invoices_btn.IsEnabled = true;
+            Medications_btn.IsEnabled = true;
+            Instructions_btn.IsEnabled = true;
+            MainFrame.Navigate(new Uri("Pages/Doctors.xaml", UriKind.Relative));
+        }
+
+        
 
     }
 }
