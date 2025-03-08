@@ -26,6 +26,5 @@ namespace Информационная_система_медицинской_к�
             PatientsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Patients.ToList();
         }
 
-        
     }
 }

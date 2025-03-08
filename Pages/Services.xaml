@@ -12,10 +12,10 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="ServicesGrid" Margin="10,10,595,10">
+        <DataGrid x:Name="ServicesGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование услуги" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding ServiceName}"/>
-                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="600" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Наименование услуги" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding ServiceName}"/>
+                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Descriptionn}"/>
                 <DataGridTextColumn Header="Стоимость" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Price}"/>
             </DataGrid.Columns>
         </DataGrid>

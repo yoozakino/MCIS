@@ -23,9 +23,8 @@ namespace Информационная_система_медицинской_к�
         public Medical_Cards()
         {
             InitializeComponent();
+            MedCardsGrid.ItemsSource = Medical_ClinicEntities.GetContext().MedicalRecords.ToList();
         }
-
-
 
     }
 }

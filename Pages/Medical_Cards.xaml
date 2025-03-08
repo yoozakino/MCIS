@@ -12,14 +12,14 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="MedCardsGrid" Margin="10">
+        <DataGrid x:Name="MedCardsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="100" Binding="{Binding RecordID}"/>
-                <DataGridTextColumn Header="Пациента" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding DoctorName}"/>
-                <DataGridTextColumn Header="Дата посещения" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding VisitDate}"/>
-                <DataGridTextColumn Header="Диагноз" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Diagnosis}"/>
-                <DataGridTextColumn Header="Назначения" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Prescriptions}"/>
+                <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding RecordID}"/>
+                <DataGridTextColumn Header="Пациента" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PatientName}"/>
+                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DoctorName}"/>
+                <DataGridTextColumn Header="Дата посещения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding VisitDate}"/>
+                <DataGridTextColumn Header="Диагноз" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Diagnosis}"/>
+                <DataGridTextColumn Header="Назначения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Prescriptions}"/>
                 <DataGridTextColumn Header="Комментарии" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Comments}"/>
             </DataGrid.Columns>
         </DataGrid>

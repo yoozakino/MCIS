@@ -12,12 +12,12 @@
     </Page.Background>
 
     <Grid>
-        <DataGrid x:Name="AppointmentsGrid" Margin="10,10,474,10">
+        <DataGrid x:Name="AppointmentsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="400" Binding="{Binding AppointmentID}"/>
-                <DataGridTextColumn Header="Пациент" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding DoctorName}"/>
-                <DataGridTextColumn Header="Дата и время приема" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding AppointmentDate}"/>
+                <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding AppointmentID}"/>
+                <DataGridTextColumn Header="Пациент" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PatientName}"/>
+                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DoctorName}"/>
+                <DataGridTextColumn Header="Дата и время приема" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding AppointmentDate}"/>
                 <DataGridTextColumn Header="Статус приема" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Statuss}"/>
             </DataGrid.Columns>
         </DataGrid>
