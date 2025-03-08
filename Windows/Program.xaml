@@ -89,7 +89,7 @@
         <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
 
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
