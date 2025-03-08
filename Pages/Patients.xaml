@@ -14,7 +14,7 @@
     <Grid>
         <DataGrid x:Name="PatientsGrid" Margin="10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Patients.FullName}"/>
                 <DataGridTextColumn Header="Дата рождения" FontFamily="PlumbBoldC" FontSize="15" Width="100" Binding="{Binding DateOfBirth}"/>
                 <DataGridTextColumn Header="Пол" FontFamily="PlumbBoldC" FontSize="15" Width="100" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="Адрес" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Addresss}"/>
