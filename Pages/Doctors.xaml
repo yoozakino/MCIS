@@ -5,17 +5,27 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Doctors" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
     <StackPanel>
-        <DataGrid x:Name="DoctorsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="DoctorsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО врача" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Специализация" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Specialization}"/>
-                <DataGridTextColumn Header="Телефон" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Phone}"/>
-                <DataGridTextColumn Header="Email" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Дата приема на работу" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding HireDate}"/>
+                <DataGridTextColumn Header="ФИО врача" Binding="{Binding FullName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Специализация" Binding="{Binding Specialization}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Дата приема на работу" Binding="{Binding HireDate}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

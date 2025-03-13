@@ -5,14 +5,18 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Rooms" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
     <StackPanel>
-        <DataGrid x:Name="RoomsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="RoomsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер кабинета" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding RoomNumber}"/>
-                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Descriptionn}"/>
+                <DataGridTextColumn Header="Номер кабинета" Binding="{Binding RoomNumber}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="500"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Descriptionn}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

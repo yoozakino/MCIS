@@ -5,18 +5,28 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Appointments" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
     <StackPanel>
-        <DataGrid x:Name="AppointmentsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="AppointmentsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding AppointmentID}"/>
-                <DataGridTextColumn Header="Пациент" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DoctorName}"/>
-                <DataGridTextColumn Header="Дата и время приема" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding AppointmentDate}"/>
-                <DataGridTextColumn Header="Статус приема" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Statuss}"/>
+                <DataGridTextColumn Header="Номер записи" Binding="{Binding AppointmentID}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Пациент" Binding="{Binding PatientName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Врач" Binding="{Binding DoctorName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Дата и время приема" Binding="{Binding AppointmentDate}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Статус приема" Binding="{Binding Statuss}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
-</Page>
+</Page> 

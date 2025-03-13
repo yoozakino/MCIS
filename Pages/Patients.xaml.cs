@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Информационная_система_медицинской_клиники.Windows;
 
 namespace Информационная_система_медицинской_клиники.Pages
 {
@@ -25,6 +26,7 @@ namespace Информационная_система_медицинской_к�
 
             InitializeComponent();
             PatientsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Patients.ToList();
+            
 
         }
 

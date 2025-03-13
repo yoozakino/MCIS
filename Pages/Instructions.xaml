@@ -5,16 +5,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Instructions" Height="1080" Width="1920"
       Loaded="Page_Loaded">
-    
+
     <StackPanel>
-        <DataGrid x:Name="InstructionsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="InstructionsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер назначения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PrescriptionID}"/>
-                <DataGridTextColumn Header="Номер медицинской карты" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding RecordID}"/>
-                <DataGridTextColumn Header="Лекарство" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding MedicationName}"/>
-                <DataGridTextColumn Header="Инструкция по применению" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding DosageInstructions}"/>
+                <DataGridTextColumn Header="Номер назначения" Binding="{Binding PrescriptionID}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Номер медицинской карты" Binding="{Binding RecordID}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Лекарство" Binding="{Binding MedicationName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Инструкция по применению" Binding="{Binding DosageInstructions}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

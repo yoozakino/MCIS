@@ -7,88 +7,8 @@
         mc:Ignorable="d"
         Title="ИСМК" WindowStyle="SingleBorderWindow" WindowState="Maximized" ResizeMode="NoResize"
         KeyDown="Window_KeyDown"
-        WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        
-        <LinearGradientBrush x:Key="HoverGradientBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FFA500" Offset="0"/>
-            <GradientStop Color="#FFD700" Offset="1"/>
-        </LinearGradientBrush>
-
-        
-        <LinearGradientBrush x:Key="ClickGradientBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="#FFA500" Offset="0"/>
-            <GradientStop Color="DeepSkyBlue" Offset="1"/>
-        </LinearGradientBrush>
-
-        
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-
-        
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="7" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1.7" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource HoverGradientBrush}"/>
-                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ClickGradientBrush}"/>
-                                <Setter Property="BorderThickness" TargetName="border" Value="0"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
-    <Window.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Window.Background>
-
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource ProgramWindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -102,23 +22,23 @@
 
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Margin="0,10">
-            <Button x:Name="create_record" Width="200" Height="30" Content="Добавить запись" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="100,5"/>
-            <Button x:Name="delete_record" Width="200" Height="30" Content="Удалить запись" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="100,5"/>
-            <Button x:Name="Update_table" Width="200" Height="30" Content="Обновить данные" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="100,5"/>
+            <Button x:Name="create_record" Style="{StaticResource TopPanelButtonStyle}" Content="Добавить запись"/>
+            <Button x:Name="delete_record" Style="{StaticResource TopPanelButtonStyle}" Content="Удалить запись"/>
+            <Button x:Name="Update_table" Style="{StaticResource TopPanelButtonStyle}" Content="Обновить данные"/>
         </StackPanel>
 
         
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top" Margin="10">
-            <Button x:Name="Patients_btn" Content="Пациенты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,10" Click="Patients_btn_сlick"/>
-            <Button x:Name="Doctors_btn" Content="Врачи" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,30" Click="Doctors_btn_сlick"/>
-            <Button x:Name="Appointments_btn" Content="Записи на прием" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,10" Click="Appointments_btn_сlick"/>
-            <Button x:Name="Medical_cards_btn" Content="Медицинские карты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,30" Click="Medical_cards_btn_сlick"/>
-            <Button x:Name="Services_btn" Content="Услуги" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,10" Click="Services_btn_сlick"/>
-            <Button x:Name="Schedules_btn" Content="Расписание врачей" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,30" Click="Schedules_btn_сlick"/>
-            <Button x:Name="Rooms_btn" Content="Кабинеты" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,10" Click="Rooms_btn_сlick"/>
-            <Button x:Name="Invoices_btn" Content="Выставленные счета" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,30" Click="Invoices_btn_сlick"/>
-            <Button x:Name="Medications_btn" Content="Лекарства" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,10" Click="Medications_btn_сlick"/>
-            <Button x:Name="Instructions_btn" Content="Назначения лекарств" Height="40" FontFamily="PlumbBoldC" FontSize="17" Background="Gold" Margin="0,30" Click="Instructions_btn_сlick"/>
+            <Button x:Name="Patients_btn" Style="{StaticResource GoldButtonStyle}" Content="Пациенты" Click="Patients_btn_click"/>
+            <Button x:Name="Doctors_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Врачи" Click="Doctors_btn_click"/>
+            <Button x:Name="Appointments_btn" Style="{StaticResource GoldButtonStyle}" Content="Записи на прием" Click="Appointments_btn_click"/>
+            <Button x:Name="Medical_cards_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Медицинские карты" Click="Medical_cards_btn_click"/>
+            <Button x:Name="Services_btn" Style="{StaticResource GoldButtonStyle}" Content="Услуги" Click="Services_btn_click"/>
+            <Button x:Name="Schedules_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Расписание врачей" Click="Schedules_btn_click"/>
+            <Button x:Name="Rooms_btn" Style="{StaticResource GoldButtonStyle}" Content="Кабинеты" Click="Rooms_btn_click"/>
+            <Button x:Name="Invoices_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Выставленные счета" Click="Invoices_btn_click"/>
+            <Button x:Name="Medications_btn" Style="{StaticResource GoldButtonStyle}" Content="Лекарства" Click="Medications_btn_click"/>
+            <Button x:Name="Instructions_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Назначения лекарств" Click="Instructions_btn_click"/>
         </StackPanel>
 
         

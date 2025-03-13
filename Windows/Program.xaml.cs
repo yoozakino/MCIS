@@ -33,8 +33,9 @@ namespace Информационная_система_медицинской_к�
             }
         }
 
-        private void Patients_btn_сlick(object sender, RoutedEventArgs e)
+        private void Patients_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = false;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -45,11 +46,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Patients.xaml", UriKind.Relative));
         }
 
-        private void Doctors_btn_сlick(object sender, RoutedEventArgs e)
+        private void Doctors_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = false;
             Appointments_btn.IsEnabled = true;
@@ -60,11 +63,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Doctors.xaml", UriKind.Relative));
         }
 
-        private void Appointments_btn_сlick(object sender, RoutedEventArgs e)
+        private void Appointments_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = false;
@@ -75,11 +80,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Appointments.xaml", UriKind.Relative));
         }
 
-        private void Medical_cards_btn_сlick(object sender, RoutedEventArgs e)
+        private void Medical_cards_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -90,11 +97,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Medical_Cards.xaml", UriKind.Relative));
         }
 
-        private void Services_btn_сlick(object sender, RoutedEventArgs e)
+        private void Services_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -105,11 +114,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Services.xaml", UriKind.Relative));
         }
 
-        private void Schedules_btn_сlick(object sender, RoutedEventArgs e)
+        private void Schedules_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -120,11 +131,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Schedules.xaml", UriKind.Relative));
         }
 
-        private void Rooms_btn_сlick(object sender, RoutedEventArgs e)
+        private void Rooms_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -135,11 +148,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Rooms.xaml", UriKind.Relative));
         }
 
-        private void Invoices_btn_сlick(object sender, RoutedEventArgs e)
+        private void Invoices_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -150,11 +165,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = false;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Invoices.xaml", UriKind.Relative));
         }
 
-        private void Medications_btn_сlick(object sender, RoutedEventArgs e)
+        private void Medications_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -165,11 +182,13 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = false;
             Instructions_btn.IsEnabled = true;
+            */
             MainFrame.Navigate(new Uri("Pages/Medications.xaml", UriKind.Relative));
         }
 
-        private void Instructions_btn_сlick(object sender, RoutedEventArgs e)
+        private void Instructions_btn_click(object sender, RoutedEventArgs e)
         {
+            /*
             Patients_btn.IsEnabled = true;
             Doctors_btn.IsEnabled = true;
             Appointments_btn.IsEnabled = true;
@@ -180,6 +199,7 @@ namespace Информационная_система_медицинской_к�
             Invoices_btn.IsEnabled = true;
             Medications_btn.IsEnabled = true;
             Instructions_btn.IsEnabled = false;
+            */
             MainFrame.Navigate(new Uri("Pages/Instructions.xaml", UriKind.Relative));
         }
     }

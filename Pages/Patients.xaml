@@ -6,18 +6,32 @@
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
       Title="Patients" Height="1080" Width="1920"
-      Loaded= "Page_Loaded">
+      Loaded="Page_Loaded">
 
-    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
-        <DataGrid x:Name="PatientsGrid" AutoGenerateColumns="False" IsReadOnly="True">
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+        <DataGrid x:Name="PatientsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Дата рождения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DateOfBirth}"/>
-                <DataGridTextColumn Header="Пол" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Gender}"/>
-                <DataGridTextColumn Header="Адрес" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Addresss}"/>
-                <DataGridTextColumn Header="Телефон" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Phone}"/>
-                <DataGridTextColumn Header="Электронная почта" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Страховой полис" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding InsuranceNumber}"/>
+                <DataGridTextColumn Header="ФИО пациента" Binding="{Binding FullName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Addresss}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Электронная почта" Binding="{Binding Email}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Страховой полис" Binding="{Binding InsuranceNumber}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

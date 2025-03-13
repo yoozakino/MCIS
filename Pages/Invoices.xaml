@@ -5,18 +5,30 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Invoices" Height="1080" Width="1920"
       Loaded="Page_Loaded">
-    
+
     <StackPanel>
-        <DataGrid x:Name="InvoicesGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="InvoicesGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер счета" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding InvoiceID}"/>
-                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Услуга" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding ServiceName}"/>
-                <DataGridTextColumn Header="Дата счета" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding InvoiceDate}"/>
-                <DataGridTextColumn Header="Сумма" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Amount}"/>
-                <DataGridTextColumn Header="Статус" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Statuss}"/>
+                <DataGridTextColumn Header="Номер счета" Binding="{Binding InvoiceID}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="ФИО пациента" Binding="{Binding PatientName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding ServiceName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Дата счета" Binding="{Binding InvoiceDate}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Statuss}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

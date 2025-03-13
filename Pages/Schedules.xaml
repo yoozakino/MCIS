@@ -5,18 +5,27 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920"
+      Title="Schedules" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-
     <StackPanel>
-        <DataGrid x:Name="SchedulesGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="SchedulesGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер расписания" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding ScheduleID}"/>
-                <DataGridTextColumn Header="Врач" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DoctorName}"/>
-                <DataGridTextColumn Header="День недели" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Day_of_week}"/>
-                <DataGridTextColumn Header="Время начала работы" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="Время окончания работы" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding EndTime}"/>
+                <DataGridTextColumn Header="Номер расписания" Binding="{Binding ScheduleID}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Врач" Binding="{Binding DoctorName}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="День недели" Binding="{Binding Day_of_week}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Время начала работы" Binding="{Binding StartTime}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                <DataGridTextColumn Header="Время окончания работы" Binding="{Binding EndTime}" 
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
