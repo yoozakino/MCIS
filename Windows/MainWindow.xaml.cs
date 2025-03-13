@@ -62,5 +62,10 @@ namespace Информационная_система_медицинской_к�
         {
             Application.Current.Shutdown();
         }
+
+        private void register_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
