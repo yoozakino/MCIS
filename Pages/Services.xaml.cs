@@ -25,6 +25,10 @@ namespace Информационная_система_медицинской_к�
             InitializeComponent();
             ServicesGrid.ItemsSource = Medical_ClinicEntities.GetContext().Servicess.ToList();
         }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
 
     }
 }

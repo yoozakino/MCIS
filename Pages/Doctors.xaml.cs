@@ -26,5 +26,10 @@ namespace Информационная_система_медицинской_к�
             DoctorsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Doctors.ToList();
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

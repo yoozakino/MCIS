@@ -5,18 +5,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded="Page_Loaded">
 
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
-        <DataGrid x:Name="RoomsGrid" Margin="10,10,732,10">
+    <StackPanel>
+        <DataGrid x:Name="RoomsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер кабинета" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding RoomNumber}"/>
-                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Descriptionn}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

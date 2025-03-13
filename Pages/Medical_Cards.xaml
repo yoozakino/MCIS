@@ -5,13 +5,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded="Page_Loaded">
 
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
+    <StackPanel>
         <DataGrid x:Name="MedCardsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер записи" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding RecordID}"/>
@@ -23,5 +20,5 @@
                 <DataGridTextColumn Header="Комментарии" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Comments}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

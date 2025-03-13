@@ -5,20 +5,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
-
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
-        <DataGrid x:Name="MedicationsGrid" Margin="10,10,733,10">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded="Page_Loaded">
+    
+    <StackPanel>
+        <DataGrid x:Name="InstructionsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер назначения" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding PrescriptionID}"/>
-                <DataGridTextColumn Header="Номер медицинской карты" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding RecordID}"/>
-                <DataGridTextColumn Header="Лекарство" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding MedicationName}"/>
-                <DataGridTextColumn Header="Инструкция по применению" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding DosageInstructions}"/>
+                <DataGridTextColumn Header="Номер назначения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PrescriptionID}"/>
+                <DataGridTextColumn Header="Номер медицинской карты" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding RecordID}"/>
+                <DataGridTextColumn Header="Лекарство" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding MedicationName}"/>
+                <DataGridTextColumn Header="Инструкция по применению" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding DosageInstructions}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

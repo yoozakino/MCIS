@@ -5,20 +5,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
-
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
-        <DataGrid x:Name="MedicationsGrid" Margin="10,10,602,10">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded="Page_Loaded">
+    
+    <StackPanel>
+        <DataGrid x:Name="MedicationsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование" FontFamily="PlumbBoldC" FontSize="15" Width="500" Binding="{Binding MedicationName}"/>
-                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Дозировка" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Dosage}"/>
+                <DataGridTextColumn Header="Наименование" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding MedicationName}"/>
+                <DataGridTextColumn Header="Описание" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Descriptionn}"/>
+                <DataGridTextColumn Header="Дозировка" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Dosage}"/>
                 <DataGridTextColumn Header="Стоимость" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Price}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

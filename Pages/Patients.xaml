@@ -5,14 +5,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded= "Page_Loaded">
 
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
-        <DataGrid x:Name="PatientsGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+        <DataGrid x:Name="PatientsGrid" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Дата рождения" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding DateOfBirth}"/>
@@ -23,5 +20,5 @@
                 <DataGridTextColumn Header="Страховой полис" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding InsuranceNumber}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

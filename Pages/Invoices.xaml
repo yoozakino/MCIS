@@ -5,22 +5,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
       mc:Ignorable="d"
-      Title="Patients" Height="1080" Width="1920">
-
-    <Page.Background>
-        <ImageBrush ImageSource="/Images/main_background.jpg" Stretch="UniformToFill"/>
-    </Page.Background>
-
-    <Grid>
-        <DataGrid x:Name="InvoicesGrid" Margin="10">
+      Title="Patients" Height="1080" Width="1920"
+      Loaded="Page_Loaded">
+    
+    <StackPanel>
+        <DataGrid x:Name="InvoicesGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер счета" FontFamily="PlumbBoldC" FontSize="15" Width="50" Binding="{Binding InvoiceID}"/>
-                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="400" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Услуга" FontFamily="PlumbBoldC" FontSize="15" Width="200" Binding="{Binding Service}"/>
-                <DataGridTextColumn Header="Дата счета" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding InvoiceDate}"/>
-                <DataGridTextColumn Header="Сумма" FontFamily="PlumbBoldC" FontSize="15" Width="300" Binding="{Binding Amount}"/>
-                <DataGridTextColumn Header="Статус" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="Номер счета" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding InvoiceID}"/>
+                <DataGridTextColumn Header="ФИО пациента" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding PatientName}"/>
+                <DataGridTextColumn Header="Услуга" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding ServiceName}"/>
+                <DataGridTextColumn Header="Дата счета" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding InvoiceDate}"/>
+                <DataGridTextColumn Header="Сумма" FontFamily="PlumbBoldC" FontSize="15" Width="auto" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Статус" FontFamily="PlumbBoldC" FontSize="15" Width="*" Binding="{Binding Statuss}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </StackPanel>
 </Page>

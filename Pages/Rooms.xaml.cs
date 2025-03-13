@@ -23,6 +23,13 @@ namespace Информационная_система_медицинской_к�
         public Rooms()
         {
             InitializeComponent();
+            RoomsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Rooms.ToList();
+        }
+
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }
