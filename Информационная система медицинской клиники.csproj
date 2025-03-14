@@ -65,34 +65,34 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Appointments.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Doctors.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Invoices.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="MedicalRecords.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Medical_Clinic_Model.Context.cs">
+    <Compile Include="Medical_Clinic_model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Medical_Clinic_Model.Context.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Medical_Clinic_Model.cs">
+    <Compile Include="Medical_Clinic_model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Medical_Clinic_Model.Designer.cs">
+    <Compile Include="Medical_Clinic_model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Medications.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Appointments.xaml.cs">
       <DependentUpon>Appointments.xaml</DependentUpon>
@@ -125,25 +125,31 @@
       <DependentUpon>Services.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patients.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Prescriptions.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Rooms.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Schedules.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Servicess.cs">
-      <DependentUpon>Medical_Clinic_Model.tt</DependentUpon>
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\Program.xaml.cs">
       <DependentUpon>Program.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
@@ -204,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\SignUpWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,12 +237,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Medical_Clinic_Model.edmx">
+    <EntityDeploy Include="Medical_Clinic_model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Medical_Clinic_Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>Medical_Clinic_model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Medical_Clinic_Model.edmx.diagram">
-      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
+    <None Include="Medical_Clinic_model.edmx.diagram">
+      <DependentUpon>Medical_Clinic_model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,19 +263,19 @@
     <Resource Include="Images\start_background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Medical_Clinic_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Medical_Clinic_Model.Context.cs</LastGenOutput>
-      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Medical_Clinic_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Medical_Clinic_Model.edmx</DependentUpon>
-      <LastGenOutput>Medical_Clinic_Model.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Medical_Clinic_model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Medical_Clinic_model.edmx</DependentUpon>
+      <LastGenOutput>Medical_Clinic_model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Medical_Clinic_model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Medical_Clinic_model.edmx</DependentUpon>
+      <LastGenOutput>Medical_Clinic_model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

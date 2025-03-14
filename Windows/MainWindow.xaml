@@ -13,7 +13,7 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="10"/>
         <StackPanel Height="300" Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
             <Button Style="{StaticResource RoundedButtonStyle}" Name="Sign_up_btn" Content="Войти" Click="Sign_up_btn_Click"/>
-            <Button Style="{StaticResource RoundedButtonStyle}" Name="register_btn" Content="Зарегистрироваться"/>
+            <Button Style="{StaticResource RoundedButtonStyle}" Name="register_btn" Content="Зарегистрироваться" Click="register_btn_Click"/>
             <Button Style="{StaticResource RoundedButtonStyle}" Name="exit_btn" Content="Выйти из системы" Click="exit_btn_Click"/>
         </StackPanel>
         <TextBlock Style="{StaticResource WelcomeTextStyle}" Text="Добро пожаловать в Информационную систему медицинской клиники (ИСМК). Для продолжения работы войдите в систему используя кнопку ниже."/>

@@ -25,7 +25,7 @@ namespace Информационная_система_медицинской_к�
         {
 
             InitializeComponent();
-            PatientsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Patients.ToList();
+            PatientsGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Patients.ToList();
             
 
         }

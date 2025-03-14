@@ -23,7 +23,7 @@ namespace Информационная_система_медицинской_к�
         public Appointments()
         {
             InitializeComponent();
-            AppointmentsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Appointments.ToList();
+            AppointmentsGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Appointments.ToList();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

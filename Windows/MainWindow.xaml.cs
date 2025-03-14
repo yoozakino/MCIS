@@ -23,6 +23,7 @@ namespace Информационная_система_медицинской_к�
         }
 
         private SignUpWindow signUpWindow = null;
+        private RegisterWindow registerWindow = null;
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -62,7 +63,21 @@ namespace Информационная_система_медицинской_к�
 
         private void register_btn_Click(object sender, RoutedEventArgs e)
         {
+            if (registerWindow == null || !registerWindow.IsLoaded)
+            {
+                
+                registerWindow = new Windows.RegisterWindow();
+                registerWindow.Show();
+            }
 
+            else
+            {
+                
+                registerWindow.Activate();
+                MessageBox.Show("Окно регистрации уже открыто");
+            }
         }
+
+        
     }
 }

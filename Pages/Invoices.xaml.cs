@@ -23,7 +23,7 @@ namespace Информационная_система_медицинской_к�
         public Invoices()
         {
             InitializeComponent();
-            InvoicesGrid.ItemsSource = Medical_ClinicEntities.GetContext().Invoices.ToList();
+            InvoicesGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Invoices.ToList();
         }
 
 

@@ -23,7 +23,7 @@ namespace Информационная_система_медицинской_к�
         public Rooms()
         {
             InitializeComponent();
-            RoomsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Rooms.ToList();
+            RoomsGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Rooms.ToList();
         }
 
 

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Информационная_система_медицинской_клиники.Windows.SignUpWindow"
+﻿<Window x:Class="Информационная_система_медицинской_клиники.Windows.RegisterWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
         mc:Ignorable="d"
-        Title="Вход в учетную запись" Height="300" Width="300" ResizeMode="NoResize"
+        Title="Регистрация в системе" Height="300" Width="300" ResizeMode="NoResize"
         KeyDown="Window_KeyDown"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource SignUpWindowStyle}">
@@ -15,8 +15,8 @@
             <Label Content="Логин" Style="{StaticResource LabelStyle}"/>
             <TextBox x:Name="login" Text="" Style="{StaticResource SignUpTextBoxStyle}"/>
             <Label Content="Пароль" Style="{StaticResource LabelStyle}"/>
-            <PasswordBox Style="{StaticResource PasswordBoxStyle1}" x:Name="password"/>
-            <Button x:Name="enter" Style="{StaticResource RoundedButtonStyle}" Content="Вход" HorizontalAlignment="Center" FontFamily="PlumbBoldC" FontSize="17" Margin="30" Width="145" Height="45" Background="Gold" Click="Button_Click"/>
+            <TextBox Style="{StaticResource SignUpTextBoxStyle}" x:Name="password"/>
+            <Button x:Name="enter" Style="{StaticResource RoundedButtonStyleForRegister}" Content="Зарегистрироваться" Click="enter_Click"/>
         </StackPanel>
     </Grid>
 </Window>
