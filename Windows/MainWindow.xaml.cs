@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Информационная_система_медицинской_клиники.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -42,14 +39,14 @@ namespace Информационная_система_медицинской_к�
         {
             if (signUpWindow == null || !signUpWindow.IsLoaded)
             {
-                // Создаем новое окно, если оно еще не открыто
+                
                 signUpWindow = new Windows.SignUpWindow();
                 signUpWindow.Show();
             }
 
             else
             {
-                // Если окно уже открыто, активируем его
+                
                 signUpWindow.Activate();
                 MessageBox.Show("Окно входа уже открыто");
             }

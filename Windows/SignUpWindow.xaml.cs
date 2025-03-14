@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Информационная_система_медицинской_клиники.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для SignUpWindow.xaml
-    /// </summary>
     public partial class SignUpWindow : Window
     {
         public SignUpWindow()
