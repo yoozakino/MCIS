@@ -23,7 +23,7 @@ namespace Информационная_система_медицинской_к�
         public Instructions()
         {
             InitializeComponent();
-            InstructionsGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Prescriptions.ToList();
+            InstructionsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Prescriptions.ToList();
         }
 
 

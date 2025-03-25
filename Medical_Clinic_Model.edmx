@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Medical_ClinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Medical_ClinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Appointments">
           <Key>
             <PropertyRef Name="AppointmentID" />
@@ -268,7 +268,8 @@
             <End Role="Schedules" EntitySet="Schedules" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Medical_ClinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -388,6 +389,14 @@
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoices__Servic__4AB81AF0" FromRole="Servicess" ToRole="Invoices" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_login" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="User_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK__Appointme__Docto__3C69FB99">
           <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
           <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
@@ -496,7 +505,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Medical_ClinicEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Medical_ClinicEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" />
           <EntitySet Name="Doctors" EntityType="Self.Doctors" />
           <EntitySet Name="Invoices" EntityType="Self.Invoices" />
@@ -507,6 +516,7 @@
           <EntitySet Name="Rooms" EntityType="Self.Rooms" />
           <EntitySet Name="Schedules" EntityType="Self.Schedules" />
           <EntitySet Name="Servicess" EntityType="Self.Servicess" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK__Appointme__Docto__3C69FB99" Association="Self.FK__Appointme__Docto__3C69FB99">
             <End Role="Doctors" EntitySet="Doctors" />
             <End Role="Appointments" EntitySet="Appointments" />
@@ -543,22 +553,13 @@
             <End Role="Medications" EntitySet="Medications" />
             <End Role="Prescriptions" EntitySet="Prescriptions" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="Medical_ClinicModel.Users" />
         </EntityContainer>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="User_login" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="User_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Medical_ClinicModelContainer" CdmEntityContainer="Medical_ClinicEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Medical_ClinicModelContainer" CdmEntityContainer="Medical_ClinicEntities">
           <EntitySetMapping Name="Appointments">
             <EntityTypeMapping TypeName="Medical_ClinicModel.Appointments">
               <MappingFragment StoreEntitySet="Appointments">
@@ -670,9 +671,9 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Medical_ClinicModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="User_password" ColumnName="User_password" />
-                <ScalarProperty Name="User_login" ColumnName="User_login" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="User_login" ColumnName="User_login" />
+                <ScalarProperty Name="User_password" ColumnName="User_password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

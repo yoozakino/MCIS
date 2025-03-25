@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49bc0f2c954e4ef59d02ba65aef82507" Name="Diagram1">
+      <Diagram DiagramId="50580a6279a84a7fa5ff5d14d0c7a207" Name="Diagram1">
         <EntityTypeShape EntityType="Medical_ClinicModel.Appointments" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="Medical_ClinicModel.Doctors" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Medical_ClinicModel.Invoices" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="Medical_ClinicModel.Rooms" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Medical_ClinicModel.Schedules" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Medical_ClinicModel.Servicess" Width="1.5" PointX="3.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Medical_ClinicModel.Users" Width="1.5" PointX="8.75" PointY="4" IsExpanded="true" />
         <AssociationConnector Association="Medical_ClinicModel.FK__Appointme__Docto__3C69FB99" ManuallyRouted="false" />
         <AssociationConnector Association="Medical_ClinicModel.FK__Appointme__Patie__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="Medical_ClinicModel.FK__MedicalRe__Docto__403A8C7D" ManuallyRouted="false" />
@@ -24,7 +25,6 @@
         <AssociationConnector Association="Medical_ClinicModel.FK__MedicalRe__Patie__3F466844" ManuallyRouted="false" />
         <AssociationConnector Association="Medical_ClinicModel.FK__Prescript__Recor__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="Medical_ClinicModel.FK__Prescript__Medic__5070F446" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Medical_ClinicModel.Users" Width="1.5" PointX="8.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

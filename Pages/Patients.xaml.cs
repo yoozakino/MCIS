@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,10 +24,8 @@ namespace Информационная_система_медицинской_к�
     {
         public Patients()
         {
-
             InitializeComponent();
-            PatientsGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Patients.ToList();
-            
+            PatientsGrid.ItemsSource = Medical_ClinicEntities.GetContext().Patients.ToList();
 
         }
 
@@ -36,4 +35,5 @@ namespace Информационная_система_медицинской_к�
         }
 
     }
+
 }

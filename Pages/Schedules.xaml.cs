@@ -23,7 +23,7 @@ namespace Информационная_система_медицинской_к�
         public Schedules()
         {
             InitializeComponent();
-            SchedulesGrid.ItemsSource = Medical_ClinicEntities1.GetContext().Schedules.ToList();
+            SchedulesGrid.ItemsSource = Medical_ClinicEntities.GetContext().Schedules.ToList();
         }
 
         
