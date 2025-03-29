@@ -142,6 +142,15 @@
     <Compile Include="Users.cs">
       <DependentUpon>Medical_Clinic_model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddRecord.xaml.cs">
+      <DependentUpon>AddRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DeleteRecord.xaml.cs">
+      <DependentUpon>DeleteRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditRecord.xaml.cs">
+      <DependentUpon>EditRecord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Program.xaml.cs">
       <DependentUpon>Program.xaml</DependentUpon>
     </Compile>
@@ -199,6 +208,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DeleteRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

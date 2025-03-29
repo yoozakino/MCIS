@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Информационная_система_медицинской_клиники.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Services.xaml
+    /// Логика взаимодействия для Services.xamla
     /// </summary>
     public partial class Services : Page
     {

@@ -22,9 +22,9 @@
 
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Margin="0,10">
-            <Button x:Name="create_record" Style="{StaticResource TopPanelButtonStyle}" Content="Добавить запись"/>
-            <Button x:Name="delete_record" Style="{StaticResource TopPanelButtonStyle}" Content="Удалить запись"/>
-            <Button x:Name="Update_table" Style="{StaticResource TopPanelButtonStyle}" Content="Обновить данные"/>
+            <Button x:Name="create_record" Style="{StaticResource TopPanelButtonStyle}" Content="Добавить запись" Click="create_record_Click"/>
+            <Button x:Name="delete_record" Style="{StaticResource TopPanelButtonStyle}" Content="Удалить запись" Click="delete_record_Click"/>
+            <Button x:Name="edit_record" Style="{StaticResource TopPanelButtonStyle}" Content="Редактировать запись" Click="edit_record_Click"/>
         </StackPanel>
 
         

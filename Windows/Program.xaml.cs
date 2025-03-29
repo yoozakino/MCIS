@@ -32,7 +32,7 @@ namespace Информационная_система_медицинской_к�
             {
                 create_record.IsEnabled = false;
                 delete_record.IsEnabled = false;
-                Update_table.IsEnabled = false;
+                edit_record.IsEnabled = false;
             }
 
             // Выводим сообщение о успешной авторизации
@@ -95,6 +95,21 @@ namespace Информационная_система_медицинской_к�
         private void Instructions_btn_click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("Pages/Instructions.xaml", UriKind.Relative));
+        }
+
+        private void create_record_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void delete_record_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void edit_record_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
