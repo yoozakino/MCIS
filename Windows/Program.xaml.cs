@@ -99,17 +99,21 @@ namespace Информационная_система_медицинской_к�
 
         private void create_record_Click(object sender, RoutedEventArgs e)
         {
-
+            AddRecord addRecordWindow = new AddRecord();
+            addRecordWindow.ShowDialog();
         }
 
         private void delete_record_Click(object sender, RoutedEventArgs e)
         {
-
+            DeleteRecord deleteRecordWindow = new DeleteRecord();
+            deleteRecordWindow.ShowDialog();
         }
 
         private void edit_record_Click(object sender, RoutedEventArgs e)
         {
-
+            EditRecord editRecordWindow = new EditRecord();
+            editRecordWindow.ShowDialog();
         }
     }
+
 }

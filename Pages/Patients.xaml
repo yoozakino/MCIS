@@ -9,7 +9,7 @@
       Loaded="Page_Loaded">
 
     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-        <DataGrid x:Name="PatientsGrid" Style="{StaticResource DefaultDataGridStyle}">
+        <DataGrid x:Name="PatientsGrid" Style="{StaticResource DefaultDataGridStyle}" CanUserAddRows="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО пациента" Binding="{Binding FullName}" 
                                    ElementStyle="{StaticResource DataGridCellTextStyle}" 
@@ -34,5 +34,6 @@
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        
     </StackPanel>
 </Page>

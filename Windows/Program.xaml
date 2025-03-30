@@ -1,14 +1,14 @@
 ﻿<Window x:Class="Информационная_система_медицинской_клиники.Windows.Program"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
-        mc:Ignorable="d"
-        Title="ИСМК" WindowStyle="SingleBorderWindow" WindowState="Maximized" ResizeMode="NoResize"
-        KeyDown="Window_KeyDown"
-        WindowStartupLocation="CenterScreen"
-        Style="{StaticResource ProgramWindowStyle}">
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
+            mc:Ignorable="d"
+            Title="ИСМК" WindowStyle="SingleBorderWindow" WindowState="Maximized" ResizeMode="NoResize"
+            KeyDown="Window_KeyDown"
+            WindowStartupLocation="CenterScreen"
+            Style="{StaticResource ProgramWindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -20,14 +20,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Margin="0,10">
             <Button x:Name="create_record" Style="{StaticResource TopPanelButtonStyle}" Content="Добавить запись" Click="create_record_Click"/>
             <Button x:Name="delete_record" Style="{StaticResource TopPanelButtonStyle}" Content="Удалить запись" Click="delete_record_Click"/>
-            <Button x:Name="edit_record" Style="{StaticResource TopPanelButtonStyle}" Content="Редактировать запись" Click="edit_record_Click"/>
+            <Button x:Name="edit_record" Style="{StaticResource TopPanelButtonStyle}" Content="Редактировать" Click="edit_record_Click"/>
         </StackPanel>
 
-        
+
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top" Margin="10">
             <Button x:Name="Patients_btn" Style="{StaticResource GoldButtonStyle}" Content="Пациенты" Click="Patients_btn_click"/>
             <Button x:Name="Doctors_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Врачи" Click="Doctors_btn_click"/>
@@ -41,7 +41,7 @@
             <Button x:Name="Instructions_btn" Style="{StaticResource GoldButtonStyleWithBottomMargin}" Content="Назначения лекарств" Click="Instructions_btn_click"/>
         </StackPanel>
 
-        
+
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="10"/>
     </Grid>
 </Window>

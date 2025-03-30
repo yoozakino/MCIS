@@ -5,34 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Информационная_система_медицинской_клиники"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="400" Width="400" ResizeMode="NoResize"
+        Title="Редактирование записи" Height="550" Width="450" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource SignUpWindowStyle}">
     <Grid Margin="10">
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
             <Label Content="Выберите таблицу:" Style="{StaticResource LabelStyle}"/>
-            <ComboBox x:Name="tableComboBox" Style="{StaticResource ComboBoxStyle}">
-                <ComboBoxItem Content="Пациенты"/>
-                <ComboBoxItem Content="Врачи"/>
-                <ComboBoxItem Content="Записи на прием"/>
-                <ComboBoxItem Content="Медицинские карты"/>
-                <ComboBoxItem Content="Лекарства"/>
-                <ComboBoxItem Content="Назначения лекарств"/>
-                <ComboBoxItem Content="Кабинеты"/>
-                <ComboBoxItem Content="Расписание врачей"/>
-                <ComboBoxItem Content="Услуги"/>
-                <ComboBoxItem Content="Счета"/>
+            <ComboBox x:Name="tablename">
+                <ComboBoxItem>Пациенты</ComboBoxItem>
+                <ComboBoxItem>Врачи</ComboBoxItem>
+                <ComboBoxItem>Записи на приём</ComboBoxItem>
+                <ComboBoxItem>Медицинские карты</ComboBoxItem>
+                <ComboBoxItem>Лекарства</ComboBoxItem>
+                <ComboBoxItem>Инструкции</ComboBoxItem>
+                <ComboBoxItem>Кабинеты</ComboBoxItem>
+                <ComboBoxItem>Расписания врачей</ComboBoxItem>
+                <ComboBoxItem>Услуги</ComboBoxItem>
+                <ComboBoxItem>Счета</ComboBoxItem>
             </ComboBox>
-
-            <Label Content="Введите ID записи для редактирования:" Style="{StaticResource LabelStyle}" Margin="0,10,0,0"/>
-            <TextBox x:Name="recordid" Style="{StaticResource SignUpTextBoxStyle}"/>
-
-            <Label Content="Введите новые данные для записи" Style="{StaticResource LabelStyle}" Margin="0,10,0,0"/>
-            <TextBox x:Name="updatedata" Style="{StaticResource SignUpTextBoxStyle}" Height="80" TextWrapping="Wrap" AcceptsReturn="True"/>
-
-            <TextBlock x:Name="hintText" TextWrapping="Wrap" Margin="0,5" Foreground="Gray" FontSize="12"/>
-
-            <Button x:Name="editing" Style="{StaticResource RoundedButtonStyle}" Content="Редактировать" Click="Button_Click" Margin="0,10"/>
         </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <Label Content="Введите ID записи для редактирования:" Style="{StaticResource LabelStyle}"/>
+            <TextBox x:Name="recordnum" Style="{StaticResource SignUpTextBoxStyle}"
+                     ToolTip="Введите числовой ID записи, которую нужно отредактировать"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0,0,0,10">
+            <Label Content="Введите новые данные" Style="{StaticResource LabelStyle}"/>
+            <TextBox x:Name="updaterecord" Style="{StaticResource SignUpTextBoxStyle}" 
+                     TextWrapping="Wrap" AcceptsReturn="True" Height="100"
+                     ToolTip="Введите новые значения через запятую. Для полей, которые не нужно изменять, используйте '-'"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,10" FontStyle="Italic" Foreground="Gray">
+                <Run Text="Пример для Patients: "/>
+                <LineBreak/>
+                <Run Text="-, -, Женский, -, +79998887766, new@email.com, -"/>
+                <LineBreak/>
+                <Run Text="(изменит только пол, телефон и email)"/>
+            </TextBlock>
+        </StackPanel>
+
+        <Button Grid.Row="5" x:Name="editing" Style="{StaticResource RoundedButtonStyle}" 
+                Content="Сохранить изменения" Click="Button_Click" HorizontalAlignment="Center" Width="200"/>
     </Grid>
 </Window>
