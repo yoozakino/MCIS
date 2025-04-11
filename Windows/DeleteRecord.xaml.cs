@@ -26,191 +26,172 @@ namespace Информационная_система_медицинской_к�
             {
                 using (var context = new Medical_ClinicEntities())
                 {
-                    if (tableName == "Пациенты")
+                    object recordToDelete = null;
+                    string successMessage = "";
+
+                    switch (tableName)
                     {
-                        var records = context.Patients.ToList();
+                        case "Пациенты":
+                            var patients = context.Patients.ToList();
+                            if (recordIndex > patients.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
 
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
+                            recordToDelete = patients[recordIndex - 1];
+
+                            if (context.Appointments.Any(a => a.PatientName == ((Patients)recordToDelete).FullName) ||
+                                context.MedicalRecords.Any(mr => mr.PatientName == ((Patients)recordToDelete).FullName) ||
+                                context.Invoices.Any(i => i.PatientName == ((Patients)recordToDelete).FullName))
+                            {
+                                MessageBox.Show("Невозможно удалить пациента, так как он связан с другими записями.");
+                                return;
+                            }
+
+                            context.Patients.Remove((Patients)recordToDelete);
+                            successMessage = "Запись о пациенте успешно удалена";
+                            break;
+
+                        case "Врачи":
+                            var doctors = context.Doctors.ToList();
+                            if (recordIndex > doctors.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            recordToDelete = doctors[recordIndex - 1];
+
+                            if (context.Appointments.Any(a => a.DoctorName == ((Doctors)recordToDelete).FullName))
+                            {
+                                MessageBox.Show("Невозможно удалить врача, так как на него есть записи на приём.");
+                                return;
+                            }
+
+                            context.Doctors.Remove((Doctors)recordToDelete);
+                            successMessage = "Запись о враче успешно удалена";
+                            break;
+
+                        case "Записи на приём":
+                            var appointments = context.Appointments.ToList();
+                            if (recordIndex > appointments.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Appointments.Remove(appointments[recordIndex - 1]);
+                            successMessage = "Запись о приёме успешно удалена";
+                            break;
+
+                        case "Услуги":
+                            var services = context.Servicess.ToList();
+                            if (recordIndex > services.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            recordToDelete = services[recordIndex - 1];
+
+                            if (context.Invoices.Any(i => i.ServiceName == ((Servicess)recordToDelete).ServiceName))
+                            {
+                                MessageBox.Show("Невозможно удалить услугу, так как она используется в выставленных счетах.");
+                                return;
+                            }
+
+                            context.Servicess.Remove((Servicess)recordToDelete);
+                            successMessage = "Запись об услуге успешно удалена";
+                            break;
+
+                        case "Медицинские карты":
+                            var medicalRecords = context.MedicalRecords.ToList();
+                            if (recordIndex > medicalRecords.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            recordToDelete = medicalRecords[recordIndex - 1];
+
+                            if (context.Prescriptions.Any(p => p.RecordID == ((MedicalRecords)recordToDelete).RecordID))
+                            {
+                                MessageBox.Show("Невозможно удалить медицинскую карту, так как на неё есть назначенные лекарства.");
+                                return;
+                            }
+
+                            context.MedicalRecords.Remove((MedicalRecords)recordToDelete);
+                            successMessage = "Запись о медицинской карте успешно удалена";
+                            break;
+
+                        case "Расписание врачей":
+                            var schedules = context.Schedules.ToList();
+                            if (recordIndex > schedules.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Schedules.Remove(schedules[recordIndex - 1]);
+                            successMessage = "Запись из расписания успешно удалена";
+                            break;
+
+                        case "Кабинеты":
+                            var rooms = context.Rooms.ToList();
+                            if (recordIndex > rooms.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Rooms.Remove(rooms[recordIndex - 1]);
+                            successMessage = "Запись о кабинете успешно удалена";
+                            break;
+
+                        case "Счета":
+                            var invoices = context.Invoices.ToList();
+                            if (recordIndex > invoices.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Invoices.Remove(invoices[recordIndex - 1]);
+                            successMessage = "Счёт успешно удалён";
+                            break;
+
+                        case "Лекарства":
+                            var meds = context.Medications.ToList();
+                            if (recordIndex > meds.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Medications.Remove(meds[recordIndex - 1]);
+                            successMessage = "Лекарство успешно удалено";
+                            break;
+
+                        case "Инструкции":
+                            var prescriptions = context.Prescriptions.ToList();
+                            if (recordIndex > prescriptions.Count)
+                            {
+                                MessageBox.Show("Запись с таким номером не найдена");
+                                return;
+                            }
+
+                            context.Prescriptions.Remove(prescriptions[recordIndex - 1]);
+                            successMessage = "Инструкция успешно удалена";
+                            break;
+
+                        default:
+                            MessageBox.Show("Выберите корректную таблицу.");
                             return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-
-                        var appointments = context.Appointments.Where(a => a.PatientName == recordToDelete.FullName).ToList();
-                        if (appointments.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить пациента, так как на него есть записи на приём.");
-                            return;
-                        }
-
-                        var medicalRecords = context.MedicalRecords.Where(mr => mr.PatientName == recordToDelete.FullName).ToList();
-                        if (medicalRecords.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить пациента, так как на него есть медицинские карты.");
-                            return;
-                        }
-
-                        var invoices = context.Invoices.Where(i => i.PatientName == recordToDelete.FullName).ToList();
-                        if (invoices.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить пациента, так как на него есть счета.");
-                            return;
-                        }
-
-                        context.Patients.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись о пациенте успешно удалена");
-                    }
-                    else if (tableName == "Врачи")
-                    {
-                        var records = context.Doctors.ToList();
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-
-                        var appointments = context.Appointments.Where(a => a.DoctorName == recordToDelete.FullName).ToList();
-                        if (appointments.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить врача, так как на него есть записи на приём.");
-                            return;
-                        }
-
-                        context.Doctors.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись о враче успешно удалена");
-                    }
-
-                    else if (tableName == "Записи на приём")
-                    {
-                        var records = context.Appointments.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-                        context.Appointments.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись о приёме успешно удалена");
-                    }
-
-                    else if (tableName == "Услуги")
-                    {
-                        var records = context.Servicess.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-
-                        var invoices = context.Invoices.Where(i => i.ServiceName == recordToDelete.ServiceName).ToList();
-                        if (invoices.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить услугу, так как она используется в выставленных счетах.");
-                            return;
-                        }
-
-                        context.Servicess.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись об услуге успешно удалена");
-                    }
-
-                    else if (tableName == "Медицинские карты")
-                    {
-                        var records = context.MedicalRecords.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-
-                        var prescriptions = context.Prescriptions.Where(p => p.RecordID == recordToDelete.RecordID).ToList();
-                        if (prescriptions.Any())
-                        {
-                            MessageBox.Show("Невозможно удалить медицинскую карту, так как на неё есть назначенные лекарства.");
-                            return;
-                        }
-
-                        context.MedicalRecords.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись о медицинской карте успешно удалена");
-                    }
-
-                    else if (tableName == "Расписание врачей")
-                    {
-                        var records = context.Schedules.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-
-                        context.Schedules.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись из расписания успешно удалена");
-                    }
-
-                    else if (tableName == "Кабинеты")
-                    {
-                        var records = context.Rooms.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-                        context.Rooms.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Запись о кабинете успешно удалена");
-                    }
-
-                    else if (tableName == "Счета")
-                    {
-                        var records = context.Invoices.ToList();
-
-                        if (recordIndex > records.Count)
-                        {
-                            MessageBox.Show("Запись с таким номером не найдена");
-                            return;
-                        }
-
-                        var recordToDelete = records[recordIndex - 1];
-                        context.Invoices.Remove(recordToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show("Счёт успешно удалён");
                     }
 
-                    else
-                    {
-                        MessageBox.Show("Выберите корректную таблицу.");
-                    }
+                    context.SaveChanges();
+                    MessageBox.Show(successMessage);
                 }
             }
             catch (Exception ex)
