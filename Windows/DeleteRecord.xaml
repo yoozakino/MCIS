@@ -18,7 +18,7 @@
 
         <StackPanel Grid.Row="0" Margin="0,0,0,10">
             <Label Content="Выберите таблицу:" Style="{StaticResource LabelStyle}"/>
-            <ComboBox x:Name="tablename">
+            <ComboBox x:Name="tablename" Style="{StaticResource ComboBoxStyle}">
                 <ComboBoxItem>Пациенты</ComboBoxItem>
                 <ComboBoxItem>Врачи</ComboBoxItem>
                 <ComboBoxItem>Записи на приём</ComboBoxItem>
@@ -26,7 +26,7 @@
                 <ComboBoxItem>Лекарства</ComboBoxItem>
                 <ComboBoxItem>Инструкции</ComboBoxItem>
                 <ComboBoxItem>Кабинеты</ComboBoxItem>
-                <ComboBoxItem>Расписания</ComboBoxItem>
+                <ComboBoxItem>Расписание врачей</ComboBoxItem>
                 <ComboBoxItem>Услуги</ComboBoxItem>
                 <ComboBoxItem>Счета</ComboBoxItem>
             </ComboBox>

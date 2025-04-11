@@ -27,11 +27,9 @@ namespace Информационная_система_медицинской_к�
 
             try
             {
-                // Разделяем введенные данные на отдельные значения
                 var values = recordData.Split(',');
                 values = values.Select(v => v.Trim()).ToArray();
 
-                // Создаем новый контекст при каждом открытии окна
                 using (var context = new Medical_ClinicEntities())
                 {
                     if (tableName == "Пациенты")
@@ -67,7 +65,7 @@ namespace Информационная_система_медицинской_к�
                     {
                         var newRecord = new Appointments
                         {
-                            AppointmentID = context.Appointments.Any() ? context.Appointments.Max(a => a.AppointmentID) + 1 : 1, // Автоинкремент вручную
+                            AppointmentID = context.Appointments.Any() ? context.Appointments.Max(a => a.AppointmentID) + 1 : 1, 
                             PatientName = values[0],
                             DoctorName = values[1],
                             AppointmentDate = DateTime.Parse(values[2]),
@@ -105,11 +103,95 @@ namespace Информационная_система_медицинской_к�
                             context.Servicess.Add(newRecord);
                             context.SaveChanges();
                         }
+
                         else
                         {
                             MessageBox.Show("Ошибка: Неверный формат цены.");
                         }
                     }
+
+                    else if (tableName == "Расписание врачей")
+                    {
+                        if (TimeSpan.TryParse(values[2], out TimeSpan startTime) &&
+                            TimeSpan.TryParse(values[3], out TimeSpan endTime))
+                        {
+                            var newRecord = new Schedules
+                            {
+                                ScheduleID = context.Schedules.Any() ? context.Schedules.Max(a => a.ScheduleID) + 1 : 1,
+                                DoctorName = values[0],
+                                Day_of_week = values[1],
+                                StartTime = startTime,
+                                EndTime = endTime
+                            };
+                            context.Schedules.Add(newRecord);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка: Неверный формат времени (используйте ЧЧ:ММ)");
+                            return;
+                        }
+                    }
+
+                    else if (tableName == "Кабинеты")
+                    {
+                        if (values.Length < 2)
+                        {
+                            MessageBox.Show("Пожалуйста, введите номер кабинета и его описание, через запятую.");
+                            return;
+                        }
+
+                        var roomNumber = values[0];
+                        var description = values[1];
+
+                        // Проверка на уникальность номера кабинета
+                        if (context.Rooms.Any(r => r.RoomNumber == roomNumber))
+                        {
+                            MessageBox.Show("Кабинет с таким номером уже существует.");
+                            return;
+                        }
+
+                        var newRecord = new Rooms
+                        {
+                            RoomNumber = roomNumber,
+                            Descriptionn = description
+                        };
+
+                        context.Rooms.Add(newRecord);
+                    }
+
+                    else if (tableName == "Счета")
+                    {
+                        if (values.Length < 5)
+                        {
+                            MessageBox.Show("Пожалуйста, введите данные: Имя пациента, Название услуги, Дата (ГГГГ-ММ-ДД), Сумма, Статус");
+                            return;
+                        }
+
+                        if (!DateTime.TryParse(values[2], out DateTime invoiceDate))
+                        {
+                            MessageBox.Show("Ошибка: Неверный формат даты.");
+                            return;
+                        }
+
+                        if (!decimal.TryParse(values[3], out decimal amount))
+                        {
+                            MessageBox.Show("Ошибка: Неверный формат суммы.");
+                            return;
+                        }
+
+                        var newInvoice = new Invoices
+                        {
+                            InvoiceID = context.Invoices.Any() ? context.Invoices.Max(i => i.InvoiceID) + 1 : 1,
+                            PatientName = values[0],
+                            ServiceName = values[1],
+                            InvoiceDate = invoiceDate,
+                            Amount = amount,
+                            Statuss = values[4]
+                        };
+
+                        context.Invoices.Add(newInvoice);
+                    }
+
 
                     context.SaveChanges();
                     MessageBox.Show("Запись успешно добавлена!");

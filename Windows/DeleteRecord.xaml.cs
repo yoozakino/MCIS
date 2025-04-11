@@ -38,7 +38,6 @@ namespace Информационная_система_медицинской_к�
 
                         var recordToDelete = records[recordIndex - 1];
 
-                        // Проверяем зависимости в других таблицах
                         var appointments = context.Appointments.Where(a => a.PatientName == recordToDelete.FullName).ToList();
                         if (appointments.Any())
                         {
@@ -143,7 +142,6 @@ namespace Информационная_система_медицинской_к�
 
                         var recordToDelete = records[recordIndex - 1];
 
-                        // Проверяем зависимость в таблице Prescriptions
                         var prescriptions = context.Prescriptions.Where(p => p.RecordID == recordToDelete.RecordID).ToList();
                         if (prescriptions.Any())
                         {
@@ -155,6 +153,58 @@ namespace Информационная_система_медицинской_к�
                         context.SaveChanges();
 
                         MessageBox.Show("Запись о медицинской карте успешно удалена");
+                    }
+
+                    else if (tableName == "Расписание врачей")
+                    {
+                        var records = context.Schedules.ToList();
+
+                        if (recordIndex > records.Count)
+                        {
+                            MessageBox.Show("Запись с таким номером не найдена");
+                            return;
+                        }
+
+                        var recordToDelete = records[recordIndex - 1];
+
+                        context.Schedules.Remove(recordToDelete);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Запись из расписания успешно удалена");
+                    }
+
+                    else if (tableName == "Кабинеты")
+                    {
+                        var records = context.Rooms.ToList();
+
+                        if (recordIndex > records.Count)
+                        {
+                            MessageBox.Show("Запись с таким номером не найдена");
+                            return;
+                        }
+
+                        var recordToDelete = records[recordIndex - 1];
+                        context.Rooms.Remove(recordToDelete);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Запись о кабинете успешно удалена");
+                    }
+
+                    else if (tableName == "Счета")
+                    {
+                        var records = context.Invoices.ToList();
+
+                        if (recordIndex > records.Count)
+                        {
+                            MessageBox.Show("Запись с таким номером не найдена");
+                            return;
+                        }
+
+                        var recordToDelete = records[recordIndex - 1];
+                        context.Invoices.Remove(recordToDelete);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Счёт успешно удалён");
                     }
 
                     else

@@ -37,7 +37,6 @@ namespace Информационная_система_медицинской_к�
                         var record = context.Patients.OrderBy(p => p.FullName).Skip(skipCount).FirstOrDefault();
                         if (record != null)
                         {
-                            // Обновляем только остальные поля (не первичный ключ)
                             if (values[0] != "-") record.DateOfBirth = DateTime.Parse(values[0]);
                             if (values[1] != "-") record.Gender = values[1];
                             if (values[2] != "-") record.Addresss = values[2];
@@ -58,7 +57,6 @@ namespace Информационная_система_медицинской_к�
                         var record = context.Doctors.OrderBy(d => d.FullName).Skip(skipCount).FirstOrDefault();
                         if (record != null)
                         {
-                            // Обновляем только остальные поля (не первичный ключ)
                             if (values[0] != "-") record.Specialization = values[0];
                             if (values[1] != "-") record.Phone = values[1];
                             if (values[2] != "-") record.Email = values[2];
@@ -77,7 +75,6 @@ namespace Информационная_система_медицинской_к�
                         var record = context.Appointments.OrderBy(a => a.AppointmentID).Skip(skipCount).FirstOrDefault();
                         if (record != null)
                         {
-                            // Обновляем только остальные поля (не первичный ключ)
                             if (values[0] != "-") record.AppointmentDate = DateTime.Parse(values[0]);
                             if (values[1] != "-") record.Statuss = values[1];
 
@@ -94,7 +91,6 @@ namespace Информационная_система_медицинской_к�
                         var record = context.MedicalRecords.OrderBy(m => m.RecordID).Skip(skipCount).FirstOrDefault();
                         if (record != null)
                         {
-                            // Обновляем только остальные поля (не первичный ключ)
                             if (values[0] != "-") record.VisitDate = DateTime.Parse(values[0]);
                             if (values[1] != "-") record.Diagnosis = values[1];
                             if (values[2] != "-") record.Prescriptions = values[2];
@@ -113,7 +109,6 @@ namespace Информационная_система_медицинской_к�
                         var record = context.Servicess.OrderBy(s => s.ServiceName).Skip(skipCount).FirstOrDefault();
                         if (record != null)
                         {
-                            // Обновляем только остальные поля (не первичный ключ)
                             if (values[0] != "-") record.Descriptionn = values[0];
                             if (values[1] != "-") record.Price = decimal.Parse(values[1]);
 
@@ -125,6 +120,62 @@ namespace Информационная_система_медицинской_к�
                             MessageBox.Show("Услуга не найдена!");
                         }
                     }
+
+                    else if (tableName == "Расписание врачей")
+                    {
+                        var record = context.Schedules.OrderBy(s => s.ScheduleID).Skip(skipCount).FirstOrDefault();
+                        if (record != null)
+                        {
+                            if (values[0] != "-") record.Day_of_week = values[0];
+                            if (values[1] != "-") record.StartTime = TimeSpan.Parse(values[1]);
+                            if (values[2] != "-") record.EndTime = TimeSpan.Parse(values[2]);
+
+                            context.SaveChanges();
+                            MessageBox.Show("Расписание успешно обновлено!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Расписание не найдено!");
+                        }
+                    }
+
+                    else if (tableName == "Кабинеты")
+                    {
+                        var record = context.Rooms.OrderBy(s => s.RoomNumber).Skip(skipCount).FirstOrDefault();
+                        if (record != null)
+                        {
+                            if (values[0] != "-") record.Descriptionn = values[0];
+
+                            context.SaveChanges();
+                            MessageBox.Show("Описание кабинета успешно обновлено!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Кабинет не найден!");
+                        }
+                    }
+
+                    else if (tableName == "Счета")
+                    {
+                        var record = context.Invoices.OrderBy(s => s.InvoiceID).Skip(skipCount).FirstOrDefault();
+                        if (record != null)
+                        {
+                            if (values[0] != "-") record.InvoiceDate = DateTime.Parse(values[0]);
+                            if (values[1] != "-") record.Amount = decimal.Parse(values[1]);
+                            if (values[2] != "-") record.Statuss = values[2];
+
+                            context.SaveChanges();
+                            MessageBox.Show("Счет успешно обновлен!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Счет не найден!");
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
