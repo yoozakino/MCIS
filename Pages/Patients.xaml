@@ -8,32 +8,46 @@
       Title="Patients" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-        <DataGrid x:Name="PatientsGrid" Style="{StaticResource DefaultDataGridStyle}" CanUserAddRows="True">
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по ФИО пациента:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchPatientName" Width="200" Margin="5" TextChanged="SearchPatientName_TextChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+
+            <TextBlock Text="Фильтр по полу:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <ComboBox x:Name="GenderFilterComboBox" Width="150" Margin="5"
+                      SelectionChanged="GenderFilterComboBox_SelectionChanged" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="М"/>
+                <ComboBoxItem Content="Ж"/>
+            </ComboBox>
+
+            <Button Content="Очистить фильтры" Margin="5" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}" Height="25"/>
+        </WrapPanel>
+
+        <DataGrid x:Name="PatientsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО пациента" Binding="{Binding FullName}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Адрес" Binding="{Binding Addresss}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Addresss}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Электронная почта" Binding="{Binding Email}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Страховой полис" Binding="{Binding InsuranceNumber}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                <DataGridTextColumn Header="Полис" Binding="{Binding InsuranceNumber}"
+                                   ElementStyle="{StaticResource DataGridCellTextStyle}"
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        
     </StackPanel>
 </Page>

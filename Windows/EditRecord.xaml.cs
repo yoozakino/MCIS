@@ -64,7 +64,7 @@ namespace Информационная_система_медицинской_к�
                             }
                             break;
 
-                        case "Записи на прием":
+                        case "Записи на приём":
                             var appointment = context.Appointments.OrderBy(a => a.AppointmentID).Skip(skipCount).FirstOrDefault();
                             if (appointment != null)
                             {

@@ -8,18 +8,24 @@
       Title="Services" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
-        <DataGrid x:Name="ServicesGrid" Style="{StaticResource DefaultDataGridStyle}">
+    <StackPanel Margin="20">
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+            <TextBlock Text="Поиск по названию:" VerticalAlignment="Center" Margin="0 0 10 0" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchServiceName" Width="300" TextChanged="SearchServiceName_TextChanged" FontFamily="plumbBoldC" FontSize="20"/>
+            <Button Content="Очистить" Margin="20 0 0 0" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}" Height="25"/>
+        </StackPanel>
+
+        <DataGrid x:Name="ServicesGrid" Style="{StaticResource DefaultDataGridStyle}" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование услуги" Binding="{Binding ServiceName}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                                    ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Descriptionn}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
+                                    ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
                 <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
+                                    ElementStyle="{StaticResource DataGridCellTextStyle}" 
+                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

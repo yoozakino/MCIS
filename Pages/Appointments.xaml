@@ -8,7 +8,23 @@
       Title="Appointments" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по имени пациента:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchPatientName" Width="200" Margin="5" TextChanged="SearchPatientName_TextChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+
+            <TextBlock Text="Фильтр по статусу:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <ComboBox x:Name="FilterStatusComboBox" Width="150" Margin="5" 
+                      SelectionChanged="FilterStatusComboBox_SelectionChanged" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="Запланирован"/>
+                <ComboBoxItem Content="Завершен"/>
+                <ComboBoxItem Content="Отменен"/>
+            </ComboBox>
+
+            <Button Content="Очистить фильтры" Margin="5" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}" Height="25"/>
+        </WrapPanel>
+        
         <DataGrid x:Name="AppointmentsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер записи" Binding="{Binding AppointmentID}" 
@@ -28,5 +44,6 @@
                                    HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
     </StackPanel>
-</Page> 
+</Page>

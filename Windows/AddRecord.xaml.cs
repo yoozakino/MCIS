@@ -14,7 +14,6 @@ namespace Информационная_система_медицинской_к�
             InitializeComponent();
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string tableName = (tablename.SelectedItem as ComboBoxItem)?.Content.ToString();
@@ -61,7 +60,12 @@ namespace Информационная_система_медицинской_к�
                             break;
 
                         case "Записи на приём":
-                            if (!context.Patients.Any(p => p.FullName == values[0]) || !context.Doctors.Any(d => d.FullName == values[1]))
+                            string patientName = values[0];
+                            string doctorName = values[1];
+                            DateTime appointmentDate = DateTime.Parse(values[2]);
+                            string status = values[3];
+
+                            if (!context.Patients.Any(p => p.FullName == patientName) || !context.Doctors.Any(d => d.FullName == doctorName))
                             {
                                 MessageBox.Show("Указанный пациент или врач не существует.");
                                 return;
@@ -70,10 +74,10 @@ namespace Информационная_система_медицинской_к�
                             var appointment = new Appointments
                             {
                                 AppointmentID = context.Appointments.Any() ? context.Appointments.Max(a => a.AppointmentID) + 1 : 1,
-                                PatientName = values[0],
-                                DoctorName = values[1],
-                                AppointmentDate = DateTime.Parse(values[2]),
-                                Statuss = values[3]
+                                PatientName = patientName,
+                                DoctorName = doctorName,
+                                AppointmentDate = appointmentDate,
+                                Statuss = status
                             };
                             context.Appointments.Add(appointment);
                             break;
@@ -130,7 +134,9 @@ namespace Информационная_система_медицинской_к�
                             break;
 
                         case "Счета":
-                            if (!context.Patients.Any(p => p.FullName == values[0]) || !context.Servicess.Any(s => s.ServiceName == values[1]))
+                            string invoicePatient = values[0];
+                            string serviceName = values[1];
+                            if (!context.Patients.Any(p => p.FullName == invoicePatient) || !context.Servicess.Any(s => s.ServiceName == serviceName))
                             {
                                 MessageBox.Show("Указанный пациент или услуга не найдены.");
                                 return;
@@ -139,8 +145,8 @@ namespace Информационная_система_медицинской_к�
                             var invoice = new Invoices
                             {
                                 InvoiceID = context.Invoices.Any() ? context.Invoices.Max(i => i.InvoiceID) + 1 : 1,
-                                PatientName = values[0],
-                                ServiceName = values[1],
+                                PatientName = invoicePatient,
+                                ServiceName = serviceName,
                                 InvoiceDate = DateTime.Parse(values[2]),
                                 Amount = decimal.Parse(values[3]),
                                 Statuss = values[4]
@@ -161,7 +167,8 @@ namespace Информационная_система_медицинской_к�
 
                         case "Инструкции":
                             int recordId = int.Parse(values[0]);
-                            if (!context.MedicalRecords.Any(mr => mr.RecordID == recordId) || !context.Medications.Any(m => m.MedicationName == values[1]))
+                            string medicationName = values[1];
+                            if (!context.MedicalRecords.Any(mr => mr.RecordID == recordId) || !context.Medications.Any(m => m.MedicationName == medicationName))
                             {
                                 MessageBox.Show("Медицинская карта или лекарство не найдены.");
                                 return;
@@ -171,7 +178,7 @@ namespace Информационная_система_медицинской_к�
                             {
                                 PrescriptionID = context.Prescriptions.Any() ? context.Prescriptions.Max(p => p.PrescriptionID) + 1 : 1,
                                 RecordID = recordId,
-                                MedicationName = values[1],
+                                MedicationName = medicationName,
                                 DosageInstructions = values[2]
                             };
                             context.Prescriptions.Add(prescription);
@@ -191,6 +198,5 @@ namespace Информационная_система_медицинской_к�
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
-
     }
 }

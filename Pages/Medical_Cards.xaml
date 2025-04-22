@@ -8,30 +8,41 @@
       Title="Medical_Cards" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
-        <DataGrid x:Name="MedCardsGrid" Style="{StaticResource DefaultDataGridStyle}">
+    <StackPanel Margin="20">
+        <!-- Панель фильтров -->
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
+            <TextBlock Text="Поиск по ФИО пациента:" Margin="0 0 10 0" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchPatientName" Width="200" Margin="0 0 20 0" TextChanged="SearchPatientName_TextChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+
+            <TextBlock Text="Фильтр по диагнозу:" Margin="0 0 10 0" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <ComboBox x:Name="DiagnosisFilterComboBox" Width="200" SelectionChanged="DiagnosisFilterComboBox_SelectionChanged" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="Грипп"/>
+                <ComboBoxItem Content="Спид"/>
+                <ComboBoxItem Content="Гипертония"/>
+                <ComboBoxItem Content="Мигрень"/>
+                <ComboBoxItem Content="Рак"/>
+                <ComboBoxItem Content="Дерматит"/>
+                <ComboBoxItem Content="Перелом руки"/>
+                <ComboBoxItem Content="Гастрит"/>
+                <ComboBoxItem Content="Диабет"/>
+                <ComboBoxItem Content="ОРВИ"/>
+            </ComboBox>
+
+            <Button Content="Очистить фильтры" Click="ClearFilters_Click" Margin="20 0 0 0" Style="{StaticResource GoldButtonStyle}" Height="25"/>
+        </StackPanel>
+
+        <!-- Таблица медицинских карт -->
+        <DataGrid x:Name="MedCardsGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True"
+                  Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер записи" Binding="{Binding RecordID}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Пациент" Binding="{Binding PatientName}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Врач" Binding="{Binding DoctorName}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Дата посещения" Binding="{Binding VisitDate}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Диагноз" Binding="{Binding Diagnosis}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Назначения" Binding="{Binding Prescriptions}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="Auto"/>
-                <DataGridTextColumn Header="Комментарии" Binding="{Binding Comments}" 
-                                   ElementStyle="{StaticResource DataGridCellTextStyle}" 
-                                   HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="*"/>
+                <DataGridTextColumn Header="Номер записи" Binding="{Binding RecordID}" Width="Auto"/>
+                <DataGridTextColumn Header="Пациент" Binding="{Binding PatientName}" Width="Auto"/>
+                <DataGridTextColumn Header="Врач" Binding="{Binding DoctorName}" Width="Auto"/>
+                <DataGridTextColumn Header="Дата посещения" Binding="{Binding VisitDate, StringFormat=dd.MM.yyyy}" Width="Auto"/>
+                <DataGridTextColumn Header="Диагноз" Binding="{Binding Diagnosis}" Width="Auto"/>
+                <DataGridTextColumn Header="Назначения" Binding="{Binding Prescriptions}" Width="Auto"/>
+                <DataGridTextColumn Header="Комментарии" Binding="{Binding Comments}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
