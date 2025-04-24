@@ -1,37 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Информационная_система_медицинской_клиники.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Invoices.xaml
-    /// </summary>
     public partial class Invoices : Page
     {
         public Invoices()
         {
             InitializeComponent();
-            InvoicesGrid.ItemsSource = Medical_ClinicEntities.GetContext().Invoices.ToList();
         }
-
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            LoadData();
         }
 
+        private void LoadData()
+        {
+            if (InvoicesGrid == null)
+                return;
 
+            string searchText = SearchPatientNameTextBox?.Text?.Trim().ToLower() ?? "";
+            string selectedStatus = (StatusFilterComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+
+            var invoices = Medical_ClinicEntities.GetContext().Invoices.ToList();
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                invoices = invoices
+                    .Where(i => i.PatientName != null && i.PatientName.ToLower().Contains(searchText))
+                    .ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(selectedStatus) && selectedStatus != "Все")
+            {
+                invoices = invoices
+                    .Where(i => i.Statuss != null && i.Statuss.ToLower() == selectedStatus.ToLower())
+                    .ToList();
+            }
+
+            InvoicesGrid.ItemsSource = invoices;
+        }
+
+        private void FilterChanged(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void ClearFilters_Click(object sender, RoutedEventArgs e)
+        {
+            SearchPatientNameTextBox.Text = "";
+            if (StatusFilterComboBox.Items.Count > 0)
+                StatusFilterComboBox.SelectedIndex = 0;
+        }
     }
 }

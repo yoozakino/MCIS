@@ -26,7 +26,6 @@ namespace Информационная_система_медицинской_к�
             var context = Medical_ClinicEntities.GetContext();
             var appointments = context.Appointments.ToList();
 
-            // Фильтрация по имени пациента
             if (!string.IsNullOrWhiteSpace(SearchPatientName.Text))
             {
                 string search = SearchPatientName.Text.ToLower();
@@ -35,7 +34,6 @@ namespace Информационная_система_медицинской_к�
                     .ToList();
             }
 
-            // Фильтрация по статусу
             if (FilterStatusComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
                 string status = selectedItem.Content.ToString();

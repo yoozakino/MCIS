@@ -8,7 +8,17 @@
       Title="Rooms" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по номеру кабинета:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchRoomNumber" Width="200" Margin="5" TextChanged="SearchFiltersChanged" FontFamily="PlumbBoldC" FontSize="15"/>
+
+            <TextBlock Text="Поиск по описанию:" Margin="10,5,5,5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchDescription" Width="200" Margin="5" TextChanged="SearchFiltersChanged" FontFamily="PlumbBoldC" FontSize="15"/>
+
+            <Button Content="Очистить" Margin="5" Height="25" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}"/>
+        </WrapPanel>
+
         <DataGrid x:Name="RoomsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер кабинета" Binding="{Binding RoomNumber}" 

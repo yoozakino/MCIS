@@ -48,7 +48,6 @@ namespace Информационная_система_медицинской_к�
             var context = Medical_ClinicEntities.GetContext();
             var doctors = context.Doctors.ToList();
 
-            // Фильтрация по имени врача
             if (!string.IsNullOrWhiteSpace(SearchDoctorName.Text))
             {
                 string search = SearchDoctorName.Text.ToLower();
@@ -57,7 +56,6 @@ namespace Информационная_система_медицинской_к�
                     .ToList();
             }
 
-            // Фильтрация по специализации
             if (FilterSpecializationComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
                 string specialization = selectedItem.Content.ToString();

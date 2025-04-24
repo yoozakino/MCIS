@@ -25,7 +25,6 @@ namespace Информационная_система_медицинской_к�
             var context = Medical_ClinicEntities.GetContext();
             var services = context.Servicess.ToList();
 
-            // Фильтр по названию
             if (!string.IsNullOrWhiteSpace(SearchServiceName.Text))
             {
                 string search = SearchServiceName.Text.ToLower();

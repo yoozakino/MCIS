@@ -8,7 +8,26 @@
       Title="Schedules" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по имени врача:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchDoctorName" Width="200" Margin="5" TextChanged="SearchDoctorName_TextChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+
+            <TextBlock Text="Фильтр по дню недели:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <ComboBox x:Name="FilterDayComboBox" Width="200" Margin="5" SelectionChanged="FilterDayComboBox_SelectionChanged" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="Понедельник"/>
+                <ComboBoxItem Content="Вторник"/>
+                <ComboBoxItem Content="Среда"/>
+                <ComboBoxItem Content="Четверг"/>
+                <ComboBoxItem Content="Пятница"/>
+                <ComboBoxItem Content="Суббота"/>
+                <ComboBoxItem Content="Воскресенье"/>
+            </ComboBox>
+
+            <Button Content="Очистить фильтры" Margin="5" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}" Height="25"/>
+        </WrapPanel>
+
         <DataGrid x:Name="SchedulesGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер расписания" Binding="{Binding ScheduleID}" 

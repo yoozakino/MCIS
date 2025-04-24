@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using Информационная_система_медицинской_клиники.Pages;
 
 namespace Информационная_система_медицинской_клиники.Windows
 {
@@ -65,7 +63,10 @@ namespace Информационная_система_медицинской_к�
                             DateTime appointmentDate = DateTime.Parse(values[2]);
                             string status = values[3];
 
-                            if (!context.Patients.Any(p => p.FullName == patientName) || !context.Doctors.Any(d => d.FullName == doctorName))
+                            bool patientExists = context.Patients.Any(p => p.FullName == patientName);
+                            bool doctorExists = context.Doctors.Any(d => d.FullName == doctorName);
+
+                            if (!patientExists || !doctorExists)
                             {
                                 MessageBox.Show("Указанный пациент или врач не существует.");
                                 return;
@@ -83,43 +84,74 @@ namespace Информационная_система_медицинской_к�
                             break;
 
                         case "Медицинские карты":
+                            string medPatient = values[0];
+                            string medDoctor = values[1];
+                            DateTime visitDate = DateTime.Parse(values[2]);
+                            string diagnosis = values[3];
+                            string prescriptions = values[4];
+                            string comments = values[5];
+
+                            if (!context.Patients.Any(p => p.FullName == medPatient) || !context.Doctors.Any(d => d.FullName == medDoctor))
+                            {
+                                MessageBox.Show("Пациент или врач не найдены.");
+                                return;
+                            }
+
                             var medicalRecord = new MedicalRecords
                             {
                                 RecordID = context.MedicalRecords.Any() ? context.MedicalRecords.Max(r => r.RecordID) + 1 : 1,
-                                PatientName = values[0],
-                                DoctorName = values[1],
-                                VisitDate = DateTime.Parse(values[2]),
-                                Diagnosis = values[3],
-                                Prescriptions = values[4],
-                                Comments = values[5]
+                                PatientName = medPatient,
+                                DoctorName = medDoctor,
+                                VisitDate = visitDate,
+                                Diagnosis = diagnosis,
+                                Prescriptions = prescriptions,
+                                Comments = comments
                             };
                             context.MedicalRecords.Add(medicalRecord);
                             break;
 
                         case "Услуги":
+                            string serviceName = values[0];
+                            string description = values[1];
+                            decimal price = decimal.Parse(values[2]);
+
                             var service = new Servicess
                             {
-                                ServiceName = values[0],
-                                Descriptionn = values[1],
-                                Price = decimal.Parse(values[2])
+                                ServiceName = serviceName,
+                                Descriptionn = description,
+                                Price = price
                             };
                             context.Servicess.Add(service);
                             break;
 
                         case "Расписание врачей":
+                            string scheduleDoctor = values[0];
+                            string dayOfWeek = values[1];
+                            TimeSpan startTime = TimeSpan.Parse(values[2]);
+                            TimeSpan endTime = TimeSpan.Parse(values[3]);
+
+                            if (!context.Doctors.Any(d => d.FullName == scheduleDoctor))
+                            {
+                                MessageBox.Show("Указанный врач не найден.");
+                                return;
+                            }
+
                             var schedule = new Schedules
                             {
                                 ScheduleID = context.Schedules.Any() ? context.Schedules.Max(s => s.ScheduleID) + 1 : 1,
-                                DoctorName = values[0],
-                                Day_of_week = values[1],
-                                StartTime = TimeSpan.Parse(values[2]),
-                                EndTime = TimeSpan.Parse(values[3])
+                                DoctorName = scheduleDoctor,
+                                Day_of_week = dayOfWeek,
+                                StartTime = startTime,
+                                EndTime = endTime
                             };
                             context.Schedules.Add(schedule);
                             break;
 
                         case "Кабинеты":
-                            if (context.Rooms.Any(r => r.RoomNumber == values[0]))
+                            string roomNumber = values[0];
+                            string roomDescription = values[1];
+
+                            if (context.Rooms.Any(r => r.RoomNumber == roomNumber))
                             {
                                 MessageBox.Show("Кабинет с таким номером уже существует.");
                                 return;
@@ -127,18 +159,25 @@ namespace Информационная_система_медицинской_к�
 
                             var room = new Rooms
                             {
-                                RoomNumber = values[0],
-                                Descriptionn = values[1]
+                                RoomNumber = roomNumber,
+                                Descriptionn = roomDescription
                             };
                             context.Rooms.Add(room);
                             break;
 
                         case "Счета":
                             string invoicePatient = values[0];
-                            string serviceName = values[1];
-                            if (!context.Patients.Any(p => p.FullName == invoicePatient) || !context.Servicess.Any(s => s.ServiceName == serviceName))
+                            string invoiceService = values[1];
+                            DateTime invoiceDate = DateTime.Parse(values[2]);
+                            decimal amount = decimal.Parse(values[3]);
+                            string invoiceStatus = values[4];
+
+                            bool patientOk = context.Patients.Any(p => p.FullName == invoicePatient);
+                            bool serviceOk = context.Servicess.Any(s => s.ServiceName == invoiceService);
+
+                            if (!patientOk || !serviceOk)
                             {
-                                MessageBox.Show("Указанный пациент или услуга не найдены.");
+                                MessageBox.Show("Пациент или услуга не найдены.");
                                 return;
                             }
 
@@ -146,21 +185,26 @@ namespace Информационная_система_медицинской_к�
                             {
                                 InvoiceID = context.Invoices.Any() ? context.Invoices.Max(i => i.InvoiceID) + 1 : 1,
                                 PatientName = invoicePatient,
-                                ServiceName = serviceName,
-                                InvoiceDate = DateTime.Parse(values[2]),
-                                Amount = decimal.Parse(values[3]),
-                                Statuss = values[4]
+                                ServiceName = invoiceService,
+                                InvoiceDate = invoiceDate,
+                                Amount = amount,
+                                Statuss = invoiceStatus
                             };
                             context.Invoices.Add(invoice);
                             break;
 
                         case "Лекарства":
+                            string medName = values[0];
+                            string medDesc = values[1];
+                            string dosage = values[2];
+                            decimal medPrice = decimal.Parse(values[3]);
+
                             var medication = new Medications
                             {
-                                MedicationName = values[0],
-                                Descriptionn = values[1],
-                                Dosage = values[2],
-                                Price = decimal.Parse(values[3])
+                                MedicationName = medName,
+                                Descriptionn = medDesc,
+                                Dosage = dosage,
+                                Price = medPrice
                             };
                             context.Medications.Add(medication);
                             break;
@@ -168,7 +212,12 @@ namespace Информационная_система_медицинской_к�
                         case "Инструкции":
                             int recordId = int.Parse(values[0]);
                             string medicationName = values[1];
-                            if (!context.MedicalRecords.Any(mr => mr.RecordID == recordId) || !context.Medications.Any(m => m.MedicationName == medicationName))
+                            string instructions = values[2];
+
+                            bool recordExists = context.MedicalRecords.Any(mr => mr.RecordID == recordId);
+                            bool medicationExists = context.Medications.Any(m => m.MedicationName == medicationName);
+
+                            if (!recordExists || !medicationExists)
                             {
                                 MessageBox.Show("Медицинская карта или лекарство не найдены.");
                                 return;
@@ -179,7 +228,7 @@ namespace Информационная_система_медицинской_к�
                                 PrescriptionID = context.Prescriptions.Any() ? context.Prescriptions.Max(p => p.PrescriptionID) + 1 : 1,
                                 RecordID = recordId,
                                 MedicationName = medicationName,
-                                DosageInstructions = values[2]
+                                DosageInstructions = instructions
                             };
                             context.Prescriptions.Add(prescription);
                             break;
