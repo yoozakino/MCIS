@@ -1,0 +1,57 @@
+﻿<Page x:Class="Информационная_система_медицинской_клиники.Pages.Reports"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Информационная_система_медицинской_клиники.Pages"
+      xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      mc:Ignorable="d"
+      Title="Reports">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Выбор таблицы:" Width="125" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+                <ComboBox x:Name="CmbTable" Width="200" Margin="5" FontFamily="PlumbBoldC" FontSize="15" SelectionChanged="UpdateChart">
+                    <ComboBoxItem Content="Пациенты"/>
+                    <ComboBoxItem Content="Врачи"/>
+                    <ComboBoxItem Content="Записи на прием"/>
+                    <ComboBoxItem Content="Медицинские карты"/>
+                    <ComboBoxItem Content="Услуги"/>
+                    <ComboBoxItem Content="Расписание врачей"/>
+                    <ComboBoxItem Content="Кабинеты"/>
+                    <ComboBoxItem Content="Выставленные счета"/>
+                    <ComboBoxItem Content="Лекарства"/>
+                    <ComboBoxItem Content="Назначения лекарств"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Тип диаграммы:" Width="125" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+                <ComboBox x:Name="CmbDiagram" Width="125" Margin="5" FontFamily="PlumbBoldC" FontSize="15" SelectionChanged="UpdateChart">
+                    <ComboBoxItem Content="Column" IsSelected="True"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="buttonExcel" Content="Экспорт в Excel" Width="150" Margin="5" Height="30" Click="buttonExcel_Click" Style="{StaticResource GoldButtonStyle}"/>
+                <Button x:Name="buttonWord" Content="Экспорт в Word" Width="150" Margin="5" Height="30" Click="buttonWord_Click" Style="{StaticResource GoldButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1" Margin="10">
+            <charts:Chart x:Name="Chart">
+                <charts:Chart.Legends>
+                    <charts:Legend />
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </WindowsFormsHost>
+
+
+
+    </Grid>
+</Page>

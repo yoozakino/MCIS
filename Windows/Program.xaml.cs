@@ -45,6 +45,7 @@ namespace Информационная_система_медицинской_к�
             }
         }
 
+
         private void Patients_btn_click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("Pages/Patients.xaml", UriKind.Relative));
@@ -95,6 +96,12 @@ namespace Информационная_система_медицинской_к�
             MainFrame.Navigate(new Uri("Pages/Instructions.xaml", UriKind.Relative));
         }
 
+        private void Reports_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/Reports.xaml", UriKind.Relative));
+        }
+
+
         private void create_record_Click(object sender, RoutedEventArgs e)
         {
             AddRecord addRecordWindow = new AddRecord();
@@ -112,6 +119,7 @@ namespace Информационная_система_медицинской_к�
             EditRecord editRecordWindow = new EditRecord();
             editRecordWindow.ShowDialog();
         }
+
     }
 
 }

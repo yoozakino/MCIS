@@ -209,7 +209,7 @@ namespace Информационная_система_медицинской_к�
                             context.Medications.Add(medication);
                             break;
 
-                        case "Инструкции":
+                        case "Назначения лекарств":
                             int recordId = int.Parse(values[0]);
                             string medicationName = values[1];
                             string instructions = values[2];

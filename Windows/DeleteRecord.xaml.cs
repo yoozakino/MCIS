@@ -173,7 +173,7 @@ namespace Информационная_система_медицинской_к�
                             successMessage = "Лекарство успешно удалено";
                             break;
 
-                        case "Инструкции":
+                        case "Назначения лекарств":
                             var prescriptions = context.Prescriptions.ToList();
                             if (recordIndex > prescriptions.Count)
                             {

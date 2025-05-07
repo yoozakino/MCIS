@@ -26,7 +26,7 @@
                 <ComboBoxItem>Записи на приём</ComboBoxItem>
                 <ComboBoxItem>Медицинские карты</ComboBoxItem>
                 <ComboBoxItem>Лекарства</ComboBoxItem>
-                <ComboBoxItem>Инструкции</ComboBoxItem>
+                <ComboBoxItem>Назначения лекарств</ComboBoxItem>
                 <ComboBoxItem>Кабинеты</ComboBoxItem>
                 <ComboBoxItem>Расписание врачей</ComboBoxItem>
                 <ComboBoxItem>Услуги</ComboBoxItem>

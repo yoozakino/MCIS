@@ -8,7 +8,29 @@
       Title="Instructions" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по номеру мед. карты:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchRecordIDTextBox" Width="200" Margin="5" TextChanged="SearchFiltersChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+
+            <TextBlock Text="Фильтр по лекарству:" Margin="10,5,5,5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <ComboBox x:Name="MedicationFilterComboBox" Width="200" Margin="5" SelectionChanged="SearchFiltersChanged" Style="{StaticResource ComboBoxStyle}">
+                <ComboBoxItem Content="Все" IsSelected="True"/>
+                <ComboBoxItem Content="Амоксициллин"/>
+                <ComboBoxItem Content="Анальгин"/>
+                <ComboBoxItem Content="Аспирин"/>
+                <ComboBoxItem Content="Гидрокортизон"/>
+                <ComboBoxItem Content="Ибупрофен"/>
+                <ComboBoxItem Content="Инсулин"/>
+                <ComboBoxItem Content="Лозартан"/>
+                <ComboBoxItem Content="Омепразол"/>
+                <ComboBoxItem Content="Парацетамол"/>
+                <ComboBoxItem Content="Цетрин"/>
+            </ComboBox>
+
+            <Button Content="Очистить фильтры" Margin="5" Height="25" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}"/>
+        </WrapPanel>
+
         <DataGrid x:Name="InstructionsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер назначения" Binding="{Binding PrescriptionID}" 

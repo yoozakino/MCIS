@@ -8,7 +8,13 @@
       Title="Medications" Height="1080" Width="1920"
       Loaded="Page_Loaded">
 
-    <StackPanel>
+    <StackPanel Margin="20">
+        <WrapPanel Margin="0,0,0,10" HorizontalAlignment="Left">
+            <TextBlock Text="Поиск по наименованию лекарства:" Margin="5" VerticalAlignment="Center" FontFamily="PlumbBoldC" FontSize="15"/>
+            <TextBox x:Name="SearchMedicationNameTextBox" Width="200" Margin="5" TextChanged="SearchMedicationName_TextChanged" FontFamily="PlumbBoldC" FontSize="20"/>
+            <Button Content="Очистить" Margin="5" Height="25" Click="ClearFilters_Click" Style="{StaticResource GoldButtonStyle}"/>
+        </WrapPanel>
+
         <DataGrid x:Name="MedicationsGrid" Style="{StaticResource DefaultDataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding MedicationName}" 

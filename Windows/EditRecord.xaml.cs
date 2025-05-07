@@ -145,7 +145,7 @@ namespace Информационная_система_медицинской_к�
                             }
                             break;
 
-                        case "Инструкции":
+                        case "Назначения лекарств":
                             var prescription = context.Prescriptions.OrderBy(p => p.PrescriptionID).Skip(skipCount).FirstOrDefault();
                             if (prescription != null)
                             {
